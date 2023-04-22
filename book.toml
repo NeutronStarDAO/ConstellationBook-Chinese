@@ -1,0 +1,24 @@
+[book]
+authors = ["NeutronStarPRO"]
+language = "zh-CN"
+multilingual = false
+src = "src"
+title = "IC烹饪指南(ICCookbook)"
+description = "The IC cookbook for you."
+
+[rust]
+edition = "2021"
+
+[output.html]
+additional-css = ["theme/style.css"]
+additional-js = ["assets/custom.js", "assets/bigPicture.js"]
+git-repository-url = "https://github.com/NeutronStarPRO/ICCookbook"
+
+[output.html.playground]
+editable = true
+copy-js = true
+# line-numbers = true
+
+[output.html.fold]
+enable = true
+level = 1
