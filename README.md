@@ -28,7 +28,5 @@
 
 加入本书的开发者讨论群，勘误、修改、提出建议、共同为开源书贡献力量！
 
-WeChat：NeutronStarPRO
-
 Discord：https://discord.gg/5Y8QPHvR
 
