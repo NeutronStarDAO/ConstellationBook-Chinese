@@ -27,15 +27,13 @@
 
 另外，IC 的内容更新迭代很快，开源大家一起贡献，内容保持新鲜不过时。
 
+<br>
 
-
-
+<br>
 
 加入本书的开发者讨论群，勘误、修改、提出建议、共同为开源书贡献力量！
 
-WeChat：NeutronStarPRO
-
-Discord：https://discord.gg/5Y8QPHvR
+[OpenChat](https://oc.app/4jwox-pyaaa-aaaar-amjbq-cai/?ref=3bmc2-5aaaa-aaaaf-agfiq-cai&code=1ab38ffae620366f) ， [Discord](https://discord.gg/5Y8QPHvR) ，[Github](https://github.com/NeutronStarDAO/ConstellationBook-Chinese) 
 
 <img src="assets/README/2.jpg">
 
