@@ -13,6 +13,7 @@ edition = "2021"
 additional-css = ["theme/style.css"]
 additional-js = ["assets/custom.js", "assets/bigPicture.js"]
 git-repository-url = "https://github.com/NeutronStarDAO/ConstellationBook-Chinese"
+mathjax-support = true
 
 [output.html.playground]
 editable = true

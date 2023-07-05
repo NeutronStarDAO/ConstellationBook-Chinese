@@ -7,18 +7,19 @@
 @media only screen and (min-width:1080px) {
     main {
         position: relative;
-        padding-right: 170px;
+        padding-right: 191px;
+        max-width: 877px !important;
     }
     .sidetoc {
         margin-left: auto;
         margin-right: auto;
         /*left: calc(100% + (var(--content-max-width))/4 - 180px);*/
-        left: calc(100% - 200px);
+        left: calc(100% - 252px);
         position: absolute;
     }
     .pagetoc {
         position: fixed;
-        width: 200px;
+        width: 237px;
         height: calc(100vh - var(--menu-bar-height) - 10rem);
         overflow: auto;
         z-index: 1000;
@@ -45,6 +46,10 @@
     }
 }
 
+.content {
+    padding: 0;
+}
+
 .page-footer {
     margin-top: 50px;
     border-top: 1px solid #ccc;
@@ -60,10 +65,22 @@
     margin-top: 1rem;
 }
 
-/* 修改滚动条宽度 */
+/* 修改滚动条 */
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #b8b8b8;
+    /* background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15,rgb(177, 21, 244)),color-stop(0.37,rgb(245, 26, 201)),color-stop(0.65,rgb(245, 128, 11)),color-stop(0.80,rgb(248, 224, 7))); */
+    transition: 0.3s ease-in-out;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #efefef;
 }
 
 /* 表格靠左对齐 */
