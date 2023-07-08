@@ -33,9 +33,8 @@
 
 加入本书的开发者讨论群，勘误、修改、提出建议、共同为开源书贡献力量！
 
-[OpenChat](https://oc.app/4jwox-pyaaa-aaaar-amjbq-cai/?ref=3bmc2-5aaaa-aaaaf-agfiq-cai&code=1ab38ffae620366f) ， [Discord](https://discord.gg/5Y8QPHvR) ，[Github](https://github.com/NeutronStarDAO/ConstellationBook-Chinese) 
+[OpenChat](https://oc.app/4jwox-pyaaa-aaaar-amjbq-cai/?ref=3bmc2-5aaaa-aaaaf-agfiq-cai&code=1ab38ffae620366f), [Telegram](https://t.me/neutronstardaoic), [Discord](https://discord.gg/5Y8QPHvR), [Github](https://github.com/NeutronStarDAO/ConstellationBook-Chinese) 
 
 <img src="assets/README/2.jpg">
-
 
 
