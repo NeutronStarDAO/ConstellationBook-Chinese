@@ -1,23 +1,20 @@
 # discovery
 
-这段代码的主要作用是监视拓扑变化并根据注册表信息更新节点状态。主要包括 GossipImpl 结构体的实现，其中包括 `refresh_topology` 和 `merge_subnet_membership` 两个方法，以及一个用于提取节点 Socket 地址的 `get_peer_addr` 函数。同时，还包含了一个测试模块，用于测试这些方法和函数的正确性。
+这段Rust代码主要是一段涉及到网络拓扑管理的实现。我会按照函数进行详细解释：
 
-## 1. GossipImpl 结构体的实现
+1. `use crate::gossip_protocol::GossipImpl;` 以及其他 `use` 语句是 Rust 中导入库或者模块的语句，使得我们可以在代码中使用这些模块或者库。
 
-这个实现包含了两个方法：`refresh_topology` 和 `merge_subnet_membership`。
+2. `impl GossipImpl` 表示我们开始为 `GossipImpl` 这个结构体或者枚举实现一些方法。
 
-#### 1.1 `refresh_topology` 方法
+3. `pub(crate) fn refresh_topology(&self)` 这是一个公有方法，用于刷新当前网络拓扑。它首先获取最新的注册表版本，然后根据最新版本更新网络拓扑。如果某个节点不再属于这个子网，或者自己不在子网内，它就会从对等管理器中删除这个节点。如果自己不在子网内，它就会提前退出以避免向对等管理器添加节点。然后，对于子网中的每个节点，如果能获取到节点的对等地址，就添加该节点到对等管理器；如果不能获取到，就删除这个节点。
 
-**功能**：根据最新的注册表值更新 peer manager 状态。这个方法可以根据最新的注册表信息更新节点状态，确保节点之间的连接始终保持最新。
+4. `fn merge_subnet_membership(&self, latest_registry_version: RegistryVersion) -> BTreeMap<NodeId, NodeRecord>` 这是一个私有方法，用于将子网成员的节点记录从最新的注册表版本中合并到一个 `BTreeMap` 中。它首先获取 consensus pool 中使用的最旧的注册表版本，然后从这个版本到最新版本的注册表版本，将每个版本中的节点记录插入到 `BTreeMap` 中。
 
-**代码解析**：
+5. `fn get_peer_addr(node_record: &NodeRecord) -> Option<SocketAddr>` 这是一个函数，从节点记录中获取对等节点的地址。如果节点记录中包含 P2P 流终点，并且终点包含一个有效的 IP 地址和端口，就返回这个 SocketAddr；否则，返回 None。
 
-1. 获取最新的注册表版本。
-2. 合并子网成员。
-3. 检查当前节点是否在子网中。
-4. 移除不在子网内的节点。
-5. 如果当前节点不在子网内，则退出以避免将节点添加到节点列表中。
-6. 将节点添加到 peer manager。
+6. `#[cfg(test)] mod tests` 这是一段单元测试代码。`cfg(test)` 表示这段代码只在运行测试时编译和运行。在这个模块中，定义了一些测试函数来测试 `get_peer_addr` 和 `merge_subnet_membership` 方法。
+
+以上就是这段代码的基本解释。每个函数都有一些更细节的部分，如果你有任何问题或者需要更深入的解释，我很愿意帮助你。
 
 
 
@@ -78,6 +75,17 @@ impl GossipImpl {
 这部分是 GossipImpl 结构体的实现。它包含了两个方法：`refresh_topology` 和 `merge_subnet_membership`。
 
 `refresh_topology` 方法的作用是根据最新的注册表值更新 peer manager 的状态。它首先获取最新的注册表版本，然后合并来自子网成员关系版本的节点记录，然后根据这些记录更新 peer manager 的状态。
+
+**功能**：根据最新的注册表值更新 peer manager 状态。这个方法可以根据最新的注册表信息更新节点状态，确保节点之间的连接始终保持最新。
+
+**代码解析**：
+
+1. 获取最新的注册表版本。
+2. 合并子网成员。
+3. 检查当前节点是否在子网中。
+4. 移除不在子网内的节点。
+5. 如果当前节点不在子网内，则退出以避免将节点添加到节点列表中。
+6. 将节点添加到 peer manager。
 
 ```rust
 pub(crate) fn refresh_topology(&self) {

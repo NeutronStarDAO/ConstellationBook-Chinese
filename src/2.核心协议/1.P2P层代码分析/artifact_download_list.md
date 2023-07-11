@@ -1,6 +1,10 @@
 # artifact_download_list
 
-让我们逐一分析这个代码文件中的代码片段。
+这个代码文件定义了一个用于管理下载任务列表的 `ArtifactDownloadList` trait。具体的实现为 `ArtifactDownloadListImpl` 结构体，其中包含了对下载任务列表的操作方法。`ArtifactTracker` 结构体则用于跟踪具体的下载任务。
+
+整体来看，代码逻辑清晰，但部分代码较长，可读性不高。建议将一些辅助功能封装为私有方法，以提高代码的可读性和可维护性。
+
+
 
 ## 1. ArtifactDownloadList trait
 
@@ -31,6 +35,8 @@ pub(crate) trait ArtifactDownloadList: Send + Sync {
 - `prune_expired_downloads`：移除并返回已过期的下载任务列表。
 - `get_tracker`：根据给定的完整性哈希值获取对应的下载跟踪器。
 - `remove_tracker`：根据给定的完整性哈希值移除对应的下载跟踪器。
+
+
 
 ## 2. ArtifactTracker 结构体
 
@@ -79,6 +85,8 @@ impl ArtifactTracker {
 
 **缺点**：没有提供 `set` 方法来修改内部属性。
 
+
+
 ## 3. ArtifactDownloadListImpl 结构体
 
 ```rust
@@ -107,6 +115,8 @@ impl ArtifactDownloadListImpl {
 - `expiry_index`：按时间排序的下载任务过期时间索引。
 - `log`：记录日志的实例。
 
+
+
 ## 4. ArtifactDownloadListImpl 实现 ArtifactDownloadList trait
 
 ```rust
@@ -122,13 +132,7 @@ impl ArtifactDownloadList for ArtifactDownloadListImpl {
 
 **优点**：实现了对下载任务列表的管理操作，包括安排下载、清理过期的下载、获取和移除下载跟踪器。
 
-**缺点**：代码较长，可读性不高。
 
-**改进**：可以考虑将辅助功能封装为私有方法，以提高代码可读性和可维护性。
 
-## 总结
 
-这个代码文件定义了一个用于管理下载任务列表的 `ArtifactDownloadList` trait。具体的实现为 `ArtifactDownloadListImpl` 结构体，其中包含了对下载任务列表的操作方法。`ArtifactTracker` 结构体则用于跟踪具体的下载任务。
-
-整体来看，代码逻辑清晰，但部分代码较长，可读性不高。建议将一些辅助功能封装为私有方法，以提高代码的可读性和可维护性。
 
