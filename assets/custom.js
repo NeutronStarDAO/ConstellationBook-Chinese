@@ -110,14 +110,33 @@ var initAll = function () {
         pagePath = "index"
     }
 
-    // 选取浏览器默认使用的语言
-    // const lang = navigator.language || navigator.userLanguage
+    document.getElementById("theme-list").addEventListener("click", function (e) {
+        const theme = document.getElementsByTagName("html")[0].className;
+        if (theme.indexOf("light") != -1 || theme.indexOf("rust") != -1) {
+            var pageElement = document.querySelector('.page');
+            var pageElement2 = document.querySelector('.sidebar-scrollbox');
+            pageElement.style.backgroundImage = 'url("../topography.png")';
+            pageElement2.style.backgroundImage = 'url("../topography.png")';
+        } else {
+            var pageElement = document.querySelector('.page');
+            var pageElement2 = document.querySelector('.sidebar-scrollbox');
+            pageElement.style.backgroundImage = 'none';
+            pageElement2.style.backgroundImage = 'none';
+        }
+    });
+
+    const themeClass = document.getElementsByTagName("html")[0].className;
+    if (themeClass.indexOf("coal") != -1 || themeClass.indexOf("navy") != -1) {
+        var pageElement = document.querySelector('.page');
+        var pageElement2 = document.querySelector('.sidebar-scrollbox');
+        pageElement.style.backgroundImage = 'none';
+        pageElement2.style.backgroundImage = 'none';
+    }
 
     // 若当前 mdbook 主题为 Light 或 Rust ，则将 giscuz 主题设置为 light
     var theme = "transparent_dark";
-    const themeClass = document.getElementsByTagName("html")[0].className;
     if (themeClass.indexOf("light") != -1 || themeClass.indexOf("rust") != -1) {
-        theme = "light"
+        theme = "light";
     }
 
     var script = document.createElement("script")

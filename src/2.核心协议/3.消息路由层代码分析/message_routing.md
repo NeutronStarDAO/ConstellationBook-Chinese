@@ -1,109 +1,111 @@
-这个代码片段来自一个Rust语言的项目，主要用于数据传输和数据流的监控和管理。我会先给出整体的概括，然后会以函数或者结构体为单位，进行详细的解读。
+# message_routing
 
-1. 整体概括
+这个代码片段主要用于数据传输和数据流的监控和管理。
 
-   这段代码主要定义了几个常量、几个结构体(`struct`)，以及这些结构体的一些方法(`impl`)。这些结构体包括`MessageTime`、`StreamTimeline`、`LatencyMetrics`和`MessageRoutingMetrics`，主要用于在数据流中对信息的时间和延迟进行记录和统计。
+整体概括
 
-2. 常量说明
+这段代码主要定义了几个常量、几个结构体(`struct`)，以及这些结构体的一些方法(`impl`)。这些结构体包括`MessageTime`、`StreamTimeline`、`LatencyMetrics`和`MessageRoutingMetrics`，主要用于在数据流中对信息的时间和延迟进行记录和统计。
 
-   代码开头的一大段都是定义的常量，`const`关键字在Rust中表示定义常量。这些常量大部分都是字符串类型的，主要用作标签或者状态的表示。例如`const BATCH_QUEUE_BUFFER_SIZE: usize = 16;`定义了一个叫做`BATCH_QUEUE_BUFFER_SIZE`的常量，类型是`usize`，值是16。
+常量说明
 
-3. `MessageTime`结构体
+代码开头的一大段都是定义的常量，`const`关键字在Rust中表示定义常量。这些常量大部分都是字符串类型的，主要用作标签或者状态的表示。例如`const BATCH_QUEUE_BUFFER_SIZE: usize = 16;`定义了一个叫做`BATCH_QUEUE_BUFFER_SIZE`的常量，类型是`usize`，值是16。
 
-   ```rust
-   struct MessageTime {
-       index: StreamIndex,
-       time: Timer,
-   }
+`MessageTime`结构体
 
-   impl MessageTime {
-       fn new(index: StreamIndex) -> Self {
-           MessageTime {
-               index,
-               time: Timer::start(),
-           }
-       }
-   }
-   ```
+```rust
+struct MessageTime {
+    index: StreamIndex,
+    time: Timer,
+}
 
-   `MessageTime`结构体包含两个字段：`index`表示数据流的索引，`time`表示一个定时器。这个结构体的作用是记录某个索引处信息首次添加到数据流的时间。这个结构体有一个方法`new`，它的作用是创建一个新的`MessageTime`实例。
+impl MessageTime {
+    fn new(index: StreamIndex) -> Self {
+        MessageTime {
+            index,
+            time: Timer::start(),
+        }
+    }
+}
+```
 
-4. `StreamTimeline`结构体
+`MessageTime`结构体包含两个字段：`index`表示数据流的索引，`time`表示一个定时器。这个结构体的作用是记录某个索引处信息首次添加到数据流的时间。这个结构体有一个方法`new`，它的作用是创建一个新的`MessageTime`实例。
 
-   ```rust
-   struct StreamTimeline {
-       entries: VecDeque<MessageTime>,
-       histogram: Histogram,
-   }
+`StreamTimeline`结构体
 
-   impl StreamTimeline {
-       fn new(histogram: Histogram) -> Self {
-           StreamTimeline {
-               entries: VecDeque::new(),
-               histogram,
-           }
-       }
+```rust
+struct StreamTimeline {
+    entries: VecDeque<MessageTime>,
+    histogram: Histogram,
+}
 
-       fn add_entry(&mut self, index: StreamIndex) {...}
+impl StreamTimeline {
+    fn new(histogram: Histogram) -> Self {
+        StreamTimeline {
+            entries: VecDeque::new(),
+            histogram,
+        }
+    }
 
-       fn observe(&mut self, index_range: Range<StreamIndex>) {...}
-   }
-   ```
+    fn add_entry(&mut self, index: StreamIndex) {...}
 
-   `StreamTimeline`结构体包含两个字段：`entries`是一个双端队列，存放的是`MessageTime`实例；`histogram`是一个用来记录观察结果的直方图。在它的方法中，`new`方法用于创建一个新的`StreamTimeline`实例，`add_entry`方法用于向`entries`中添加一个新的`MessageTime`实例，`observe`方法用于记录每个在给定索引范围内的信息的耗时。
+    fn observe(&mut self, index_range: Range<StreamIndex>) {...}
+}
+```
 
-5. `LatencyMetrics`结构体
+`StreamTimeline`结构体包含两个字段：`entries`是一个双端队列，存放的是`MessageTime`实例；`histogram`是一个用来记录观察结果的直方图。在它的方法中，`new`方法用于创建一个新的`StreamTimeline`实例，`add_entry`方法用于向`entries`中添加一个新的`MessageTime`实例，`observe`方法用于记录每个在给定索引范围内的信息的耗时。
 
-   ```rust
-   pub(crate) struct LatencyMetrics {
-       timelines: BTreeMap<SubnetId, StreamTimeline>,
-       histograms: HistogramVec,
-   }
+`LatencyMetrics`结构体
 
-   impl LatencyMetrics {
-       fn new(metrics_registry: &MetricsRegistry, name: &str, description: &str) -> Self {...}
+```rust
+pub(crate) struct LatencyMetrics {
+    timelines: BTreeMap<SubnetId, StreamTimeline>,
+    histograms: HistogramVec,
+}
 
-       pub(crate) fn new_time_in_stream(metrics_registry: &MetricsRegistry) -> LatencyMetrics {...}
+impl LatencyMetrics {
+    fn new(metrics_registry: &MetricsRegistry, name: &str, description: &str) -> Self {...}
 
-       pub(crate) fn new_time_in_backlog(metrics_registry: &MetricsRegistry) -> LatencyMetrics {...}
+    pub(crate) fn new_time_in_stream(metrics_registry: &MetricsRegistry) -> LatencyMetrics {...}
 
-       fn with_timeline(&mut self, subnet_id: SubnetId, f: impl FnOnce(&mut StreamTimeline)) {...}
+    pub(crate) fn new_time_in_backlog(metrics_registry: &MetricsRegistry) -> LatencyMetrics {...}
 
-       pub(crate) fn record_header(&mut self, subnet_id: SubnetId, header: &StreamHeader) {...}
+    fn with_timeline(&mut self, subnet_id: SubnetId, f: impl FnOnce(&mut StreamTimeline)) {...}
 
-       pub(crate) fn observe_message_durations(
-           &mut self,
-           subnet_id: SubnetId,
-           index_range: Range<StreamIndex>,
-       ) {...}
-   }
-   ```
+    pub(crate) fn record_header(&mut self, subnet_id: SubnetId, header: &StreamHeader) {...}
 
-   `LatencyMetrics`结构体主要用于存储每个远程子网的消息延迟统计信息。其中，`timelines`是一个存储每个子网消息时间线的映射，`histograms`则是消息持续时间的直方图。这个结构体的方法主要用于创建新的延迟度量实例，向时间线添加新的头部信息，以及记录消息的持续时间。
+    pub(crate) fn observe_message_durations(
+        &mut self,
+        subnet_id: SubnetId,
+        index_range: Range<StreamIndex>,
+    ) {...}
+}
+```
 
-6. `MessageRoutingMetrics`结构体
+`LatencyMetrics`结构体主要用于存储每个远程子网的消息延迟统计信息。其中，`timelines`是一个存储每个子网消息时间线的映射，`histograms`则是消息持续时间的直方图。这个结构体的方法主要用于创建新的延迟度量实例，向时间线添加新的头部信息，以及记录消息的持续时间。
 
-   ```rust
-   pub(crate) struct MessageRoutingMetrics {
-       deliver_batch_count: IntCounterVec,
-       expected_batch_height: IntGauge,
-       registry_version: IntGauge,
-       process_batch_duration: Histogram,
-       pub process_batch_phase_duration: HistogramVec,
-       canisters_memory_usage_bytes: IntGauge,
-       critical_error_missing_subnet_size: IntCounter,
-       critical_error_no_canister_allocation_range: IntCounter,
-       pub timed_out_requests_total: IntCounter,
-   }
-   
-   impl MessageRoutingMetrics {
-       pub(crate) fn new(metrics_registry: &MetricsRegistry) -> Self {...}
-   
-       pub fn observe_no_canister_allocation_range(&self, log: &ReplicaLogger, message: String) {...}
-   }
-   ```
+`MessageRoutingMetrics`结构体
 
-   `MessageRoutingMetrics`结构体主要用于存储消息路由的一些统计信息，例如批处理的数量，批处理的高度，注册表的版本，批处理的持续时间等。它的方法主要用于创建新的消息路由度量实例，以及观察缺少小区大小的严重错误。
+```rust
+pub(crate) struct MessageRoutingMetrics {
+    deliver_batch_count: IntCounterVec,
+    expected_batch_height: IntGauge,
+    registry_version: IntGauge,
+    process_batch_duration: Histogram,
+    pub process_batch_phase_duration: HistogramVec,
+    canisters_memory_usage_bytes: IntGauge,
+    critical_error_missing_subnet_size: IntCounter,
+    critical_error_no_canister_allocation_range: IntCounter,
+    pub timed_out_requests_total: IntCounter,
+}
+
+impl MessageRoutingMetrics {
+    pub(crate) fn new(metrics_registry: &MetricsRegistry) -> Self {...}
+
+    pub fn observe_no_canister_allocation_range(&self, log: &ReplicaLogger, message: String) {...}
+}
+```
+
+`MessageRoutingMetrics`结构体主要用于存储消息路由的一些统计信息，例如批处理的数量，批处理的高度，注册表的版本，批处理的持续时间等。它的方法主要用于创建新的消息路由度量实例，以及观察缺少小区大小的严重错误。
 
 以上就是这段代码的详细解读，主要是通过定义各种数据结构和方法，对数据流中的消息进行监控和统计，以便于进行数据传输的管理。
 

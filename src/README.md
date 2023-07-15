@@ -8,8 +8,7 @@
 
 《互联网计算机漫游指南》的结构：前半部分生动有趣，后半部分言简意赅；前半部分谈 IC 原理，后半部分论开发实战。
 
-<img src="assets/README/logo.png" alt="DFINITY logo" width="377px">
-
+<img src="assets/README/logo.png" width="300px" style="float: right; margin-right: 15px;">
 
 
 ### 为什么写这本书？
