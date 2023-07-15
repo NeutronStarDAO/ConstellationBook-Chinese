@@ -48,6 +48,7 @@
 
 body {
     font-size: 18px;
+    scroll-behavior: smooth;
 }
 
 .page {
@@ -147,6 +148,14 @@ code.editable, .ace_scroller {
 
 img:hover {
     cursor: pointer;
+}
+
+.zoom-img {
+    transition: all 0.7s ease;
+}
+
+.zoom-img:hover {
+    transform: scale(1.2);
 }
 
 .center-image {
