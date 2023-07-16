@@ -14,7 +14,6 @@ additional-css = ["theme/style.css"]
 additional-js = ["assets/custom.js", "assets/bigPicture.js"]
 git-repository-url = "https://github.com/NeutronStarDAO/ConstellationBook-Chinese"
 mathjax-support = true
-show-sidebar = false
 
 [output.html.playground]
 editable = true
@@ -24,5 +23,3 @@ copy-js = true
 [output.html.fold]
 enable = true
 level = 0
-
-

@@ -8,7 +8,7 @@
 
 《互联网计算机漫游指南》的结构：前半部分生动有趣，后半部分言简意赅；前半部分谈 IC 原理，后半部分论开发实战。
 
-<img src="assets/README/logo.png" width="300px" style="float: right; margin-right: 15px;" class="zoom-img">
+<img src="assets/README/logo.png" width="30%" style="float: right; margin-right: 15px;" class="zoom-img">
 
 
 ### 为什么写这本书？
@@ -35,5 +35,4 @@
 [OpenChat](https://oc.app/4jwox-pyaaa-aaaar-amjbq-cai/?ref=3bmc2-5aaaa-aaaaf-agfiq-cai&code=1ab38ffae620366f), [Telegram](https://t.me/neutronstardaoic), [Discord](https://discord.gg/5Y8QPHvR), [Github](https://github.com/NeutronStarDAO/ConstellationBook-Chinese) 
 
 <img src="assets/README/2.jpg">
-
 

@@ -144,10 +144,10 @@ var initAll = function () {
     script.src = "https://giscus.app/client.js";
     script.async = true;
     script.crossOrigin = "anonymous";
-    script.setAttribute("data-repo", "NeutronstarPRO/ICCookbook");
-    script.setAttribute("data-repo-id", "R_kgDOI0J1bg");
+    script.setAttribute("data-repo", "NeutronStarDAO/constellationzh.github.io");
+    script.setAttribute("data-repo-id", "R_kgDOJ5p-JQ");
     script.setAttribute("data-category", "General");
-    script.setAttribute("data-category-id", "DIC_kwDOI0J1bs4CTuGp");
+    script.setAttribute("data-category-id", "DIC_kwDOJ5p-Jc4CX6IJ");
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-term", pagePath);
     script.setAttribute("data-reactions-enabled", "1");
@@ -156,7 +156,7 @@ var initAll = function () {
     script.setAttribute("data-theme", theme);
     script.setAttribute("data-strict", "1");
     script.setAttribute("crossorigin", "anonymous");
-    // script.setAttribute("data-lang", lang);
+    script.setAttribute("data-lang", "zh-CN");
     // 预先加载评论会更好，这样用户读到那边时，评论就加载好了
     script.setAttribute("data-loading", "lazy");
     document.getElementById("giscus-container").appendChild(script);
