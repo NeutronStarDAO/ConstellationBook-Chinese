@@ -1,6 +1,6 @@
 # Constellation Book
 
-- [互联网计算机漫游指南](README.md)
+[互联网计算机漫游指南](about.md)
 
 # 去中心化之旅
 
