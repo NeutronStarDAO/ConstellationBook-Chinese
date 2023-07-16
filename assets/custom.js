@@ -149,7 +149,6 @@ var initAll = function () {
     script.setAttribute("data-category", "General");
     script.setAttribute("data-category-id", "DIC_kwDOJ5p-Jc4CX6IJ");
     script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-term", pagePath);
     script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "top");
