@@ -213,13 +213,9 @@ vetIBE 也就是把传统 IBE 方案里的第三方私钥生成中心（PKG）�
 >
 > 有了 vetKD ，现在每个子网都是一个 “ 去中心化的 PKG ” 啦。
 
-vetkeys 就是这些密钥：
+vetkeys 就是指派生出来的这些密钥。
 
-<div class="center-image">
-    <img src="assets/VetKeys/image-20230723190352661.png" style="zoom:43%;" />
-</div>
 <br>
-
 
 所以在 vetIBE 中，用户没有固定的公钥，而是根据需要临时生成传输公钥 tpk 。然后通过副本们的协作来获得用户私钥。用户 id 和 tpk 一起作为解密密钥派生的 “ 身份 ” ，但用户并没有固定的公私钥对。
 
