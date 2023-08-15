@@ -1,0 +1,14 @@
+**Main Participants**
+
+**Jan** Camenisch ([u/Jan_DFN](https://www.reddit.com/u/Jan_DFN/)) is the **Vice President of Research & Cryptography** at DFINITY. He is a [leading scientist](https://scholar.google.com/citations?user=T6esJiIAAAAJ&hl=en) and has published over [120 widely cited papers](https://dblp.org/pers/hd/c/Camenisch:Jan) in the areas of privacy and cryptography. Previously, he spent 19 years as Principal Research Staff Member at IBM, where he co-invented [Identity Mixer](https://www.zurich.ibm.com/identity_mixer/ed), a unique cryptographic protocol for authentication. He is a Fellow of [IEEE](https://www.computer.org/web/awards/technical-jan-camenisch) and [IACR](https://www.iacr.org/fellows/2017/camenisch.html) and has received many awards for his work.
+
+**Maria** Dubovitskaya ([u/maria_DFN](https://www.reddit.com/u/maria_DFN/)) is the **Senior Engineering Manager** at DFINITY where she leads multiple teams (including the Crypto team). She is a cryptographer working on designing provably secure protocols for [privacy protection](https://www.ted.com/talks/maria_dubovitskaya_take_back_control_of_your_personal_data) and bringing research into practice. Maria joined DFINITY after 11 years as an engineer and [researcher at IBM](http://scholar.google.com/citations?user=SyimU5oAAAAJ&hl=en).
+
+**Jens** Groth ([u/jens_dfn](https://www.reddit.com/u/jens_dfn/)) is a **Principal Researcher** at DFINITY. Jens is a leading cryptographer who has invented [pairing-based NIZK proofs](https://link.springer.com/chapter/10.1007%2F11761679_21), [pairing-based SNARKs](https://link.springer.com/chapter/10.1007%2F978-3-642-17373-8_19), and [logarithmic size proof systems](https://link.springer.com/chapter/10.1007%2F978-3-642-17373-8_19) underpinning Bulletproofs. He got a PhD from Aarhus University, the Chancellor's Award for Postdoctoral Research at UCLA, became Professor of Cryptology at UCL, and has published [more than 50 scientific articles](https://scholar.google.com/citations?user=5w0Y9JUAAAAJ&hl=en&oi=ao).
+
+**Andrea** Cerulli ([u/andrea_dfn](https://www.reddit.com/u/andrea_dfn/)) is a **Senior Researcher** working in the DFINITY Crypto team. His research is in the development and deployment of cryptographic protocols, currently working on building efficient zero-knowledge proofs and arguments. Previously, he was a [doctoral researcher](https://scholar.google.co.uk/citations?user=i5sz7Q8AAAAJ&hl=en) in the Information Security Group at UCL.
+
+**Manu** Drijvers **(**[u/manu_DFN](https://www.reddit.com/u/manu_DFN/)**)** is the **Engineering Manager of Consensus** at DFINITY. Manu joined DFINITY after working at IBM Research as a predoctoral researcher in cryptography. His research focuses on anonymous credentials, multi-signatures, and composable cryptographic protocols. He has published [many papers.](https://scholar.google.com/citations?user=yWviyh0AAAAJ&hl=en)
+
+
+

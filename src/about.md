@@ -1,14 +1,72 @@
-# 互联网计算机漫游指南
+<div class="center-image">
+    <h1 class="home-h1">👽互联网计算机漫游指南🛸</h1>
+</div>
 
-如果你只听说过 IC ，但一直忙于以太坊、波卡的项目，没有详细了解过 IC ，那你算来对[地方](1.了解IC/1.了解IC.md)了！
+(｡･∀･)ﾉﾞ嗨！欢迎登录中子星~🫡 来了就是中子星人！🎉 
 
-如果你还不了解 区块链、比特币、IC ，没关系，从[这里](0.去中心化之旅/造梦家的冒险之旅.md)开始。听我向你娓娓道来加密发展史，火速入门 Web3 开发！
+1️⃣如果你还不了解 区块链、比特币、IC ，没关系。听我向你[娓娓道来](/0.去中心化之旅/区块链是啥？.md)加密发展史！
 
-<img src="assets/README/0.jpg">
+2️⃣如果你只听说过 IC ，还没有详细了解 IC ，那你来对地方啦，在[这里](1.了解IC/1.了解IC.md)了解更多相关信息！
 
-《互联网计算机漫游指南》的结构：前半部分生动有趣，后半部分言简意赅；前半部分谈 IC 原理，后半部分论开发实战。
+3️⃣想知道关于多米尼克的故事嘛？他在[这里](/0.去中心化之旅/造梦家的冒险之旅.md)！
 
-<img src="assets/README/logo.png" width="30%" style="float: right; margin-right: 15px;" class="zoom-img">
+<div class="home-box">
+    <div class="box box1">1️⃣📖
+            <div>
+                加密往事
+            </div>
+            <div>
+                从零开始入门 web3
+            </div>
+    </div>
+    <div class="box box2">2️⃣📡
+            <div>
+                快速了解
+            </div>
+            <div>
+                IC 的 web3 解决方案
+            </div>
+    </div>
+    <div class="box box3">3️⃣🔍
+            <div>
+                背后故事
+            </div>
+            <div>
+                多米尼克的冒险之旅
+            </div>
+    </div>
+</div>
+
+<div class="zoom-font hover-window">
+    &nbsp; 2015 &nbsp;&nbsp;&nbsp;&nbsp; 2018 &nbsp;&nbsp;&nbsp; 
+    &nbsp; 2021 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 现在 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10 年后 
+    <br>
+    —〦———〦———〦———〦—————〦———→ ∞ 💥 区块链奇点
+</div>
+
+<img src="assets/README/logo.png" width="30%" style="float: right; margin-left: 35px;" class="zoom-img"/>
+
+互联网计算机是新一代通用计算区块链。起源于多米尼克 2015 年的想法：一个可以横向扩展的去中心化的世界计算机。 2018 年完成了雏形。并在深度优化底层协议后，于 2021 年上线。经过几年发展，它旨在成为一个去中心化的云服务，
+<span class="hover-win0">
+    <span class="hover-win2">
+        底层做成了去中心化的云，上层应用则通过 DAO 控制权限，达到去中心化的目的。
+    </span>
+    <span class="hover-win1">
+        可以部署各种 dapp 
+    </span>
+</span>
+，全栈上链，无需使用其他中心化服务。
+
+<div class="center-image">
+    <img src="assets/README/0.jpg">
+</div>
+
+《互联网计算机漫游指南》的结构：
+
+* 前半部分生动有趣，后半部分言简意赅
+
+* 前半部分谈 IC 原理，后半部分论开发实战
 
 
 ### 为什么写这本书？
@@ -32,7 +90,25 @@
 
 加入本书的开发者讨论群，勘误、修改、提出建议、共同为开源书贡献力量！
 
+🌎
 [OpenChat](https://oc.app/4jwox-pyaaa-aaaar-amjbq-cai/?ref=3bmc2-5aaaa-aaaaf-agfiq-cai&code=1ab38ffae620366f), [Telegram](https://t.me/neutronstardaoic), [Discord](https://discord.gg/5Y8QPHvR), [Github](https://github.com/NeutronStarDAO/ConstellationBook-Chinese) 
 
 <img src="assets/README/2.jpg">
 
+
+
+目前（2023年6月）每个区块包含1000条信息，也就是说，一个子网一秒处理 1000 条更新调用消息（实际数据略低于 1000 条消息/秒，也许是 950 条/每秒左右）。
+
+每个子网约 970 次更新/秒，约 4000 次查询/每个节点
+
+
+
+如果要与以太坊进行对比，Cycle 就相当于以太坊的 ETH 。而 ICP 则是一种特殊类型的 ERC20 代币。
+
+Cycle 是嵌入系统中的本地货币。而 ICP 更像是在系统之上构建的一种特权应用程序。
+
+从这个角度来看，事情变得更容易理解。cycles 是整个系统运行所必需的gas，而icp是部署在 nns 里的 canister token 账本，在应用层。**（配2号纸图）**
+
+
+
+而cycles只能由icp燃烧单向兑换。这里把icp和cycles做了绑定。而cycles又与SDR做了锚定。**（配1号纸图）**

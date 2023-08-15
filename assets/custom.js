@@ -1,18 +1,57 @@
 var initAll = function () {
-    var path = window.location.pathname;
-    if (path.endsWith("/print.html")) {
-        return;
-    }
+    document.getElementById("theme-list").addEventListener("click", function (e) {
+        var iframe = document.querySelector('.giscus-frame');
+        if (!iframe) return;
+        var theme;
+        if (e.target.className === "theme") {
+            theme = e.target.id;
+        } else {
+            return;
+        }
 
-    var images = document.querySelectorAll("main img")
-    Array.prototype.forEach.call(images, function (img) {
-        img.addEventListener("click", function () {
-            BigPicture({
-                el: img,
-            });
-        });
+        // 若当前 mdbook 主题不是 Light 或 Rust ，则将 giscuz 主题设置为 transparent_dark
+        var giscusTheme = "light"
+        if (theme != "light" && theme != "rust") {
+            giscusTheme = "transparent_dark";
+        }
+
+        var msg = {
+            setConfig: {
+                theme: giscusTheme
+            }
+        };
+        iframe.contentWindow.postMessage({ giscus: msg }, 'https://giscus.app');
     });
 
+    document.getElementById("theme-list").addEventListener("click", function (e) {
+        const theme = document.getElementsByTagName("html")[0].className;
+        if (theme.indexOf("light") != -1 || theme.indexOf("rust") != -1) {
+            var pageElement = document.querySelector('.page');
+            var pageElement2 = document.querySelector('.sidebar-scrollbox');
+            pageElement.style.backgroundImage = 'url("../topography.png")';
+            pageElement2.style.backgroundImage = 'url("../topography.png")';
+        } else {
+            var pageElement = document.querySelector('.page');
+            var pageElement2 = document.querySelector('.sidebar-scrollbox');
+            pageElement.style.backgroundImage = 'none';
+            pageElement2.style.backgroundImage = 'none';
+        }
+    });
+
+    const themeClass = document.getElementsByTagName("html")[0].className;
+    if (themeClass.indexOf("coal") != -1 || themeClass.indexOf("navy") != -1) {
+        var pageElement = document.querySelector('.page');
+        var pageElement2 = document.querySelector('.sidebar-scrollbox');
+        pageElement.style.backgroundImage = 'none';
+        pageElement2.style.backgroundImage = 'none';
+    }
+
+    // 若当前 mdbook 主题为 Light 或 Rust ，则将 giscuz 主题设置为 light
+    var theme = "transparent_dark";
+    if (themeClass.indexOf("light") != -1 || themeClass.indexOf("rust") != -1) {
+        theme = "light";
+    }
+    
     // Un-active everything when you click it
     Array.prototype.forEach.call(document.getElementsByClassName("pagetoc")[0].children, function (el) {
         el.addEventHandler("click", function () {
@@ -76,67 +115,47 @@ var initAll = function () {
     // Handle active elements on scroll
     window.addEventListener("scroll", updateFunction);
 
-    document.getElementById("theme-list").addEventListener("click", function (e) {
-        var iframe = document.querySelector('.giscus-frame');
-        if (!iframe) return;
-        var theme;
-        if (e.target.className === "theme") {
-            theme = e.target.id;
-        } else {
-            return;
-        }
+    const btn1 = document.querySelector('.box1');
+    if (btn1) {
+        btn1.addEventListener('click', () => {
+            window.location.href = '/constellationzh.github.io/0.去中心化之旅/区块链是啥？.html';
+        });
+    }
+    const btn2 = document.querySelector('.box2');
+    if (btn2) {
+        btn2.addEventListener('click', () => {
+            window.location.href = '/constellationzh.github.io/1.了解IC/1.了解IC.html';
+        });
+    }
+    const btn3 = document.querySelector('.box3');
+    if (btn3) {
+        btn3.addEventListener('click', () => {
+            window.location.href = '/constellationzh.github.io/0.去中心化之旅/造梦家的冒险之旅.html';
+        });
+    }
 
-        // 若当前 mdbook 主题不是 Light 或 Rust ，则将 giscuz 主题设置为 transparent_dark
-        var giscusTheme = "light"
-        if (theme != "light" && theme != "rust") {
-            giscusTheme = "transparent_dark";
-        }
+    var path = window.location.pathname;
+    if (path.endsWith("/print.html")) {
+        return;
+    }
 
-        var msg = {
-            setConfig: {
-                theme: giscusTheme
-            }
-        };
-        iframe.contentWindow.postMessage({ giscus: msg }, 'https://giscus.app');
+    var images = document.querySelectorAll("main img")
+    Array.prototype.forEach.call(images, function (img) {
+        img.addEventListener("click", function () {
+            BigPicture({
+                el: img,
+            });
+        });
     });
     
     pagePath = pagePath.replace("index.md", "");
     pagePath = pagePath.replace(".md", "");
     if (pagePath.length > 0) {
-        if (pagePath.charAt(pagePath.length-1) == "/"){
-            pagePath = pagePath.substring(0, pagePath.length-1)
+        if (pagePath.charAt(pagePath.length-1) == "/") {
+            pagePath = pagePath.substring(0, pagePath.length-1);
         }
-    }else {
-        pagePath = "index"
-    }
-
-    document.getElementById("theme-list").addEventListener("click", function (e) {
-        const theme = document.getElementsByTagName("html")[0].className;
-        if (theme.indexOf("light") != -1 || theme.indexOf("rust") != -1) {
-            var pageElement = document.querySelector('.page');
-            var pageElement2 = document.querySelector('.sidebar-scrollbox');
-            pageElement.style.backgroundImage = 'url("../topography.png")';
-            pageElement2.style.backgroundImage = 'url("../topography.png")';
-        } else {
-            var pageElement = document.querySelector('.page');
-            var pageElement2 = document.querySelector('.sidebar-scrollbox');
-            pageElement.style.backgroundImage = 'none';
-            pageElement2.style.backgroundImage = 'none';
-        }
-    });
-
-    const themeClass = document.getElementsByTagName("html")[0].className;
-    if (themeClass.indexOf("coal") != -1 || themeClass.indexOf("navy") != -1) {
-        var pageElement = document.querySelector('.page');
-        var pageElement2 = document.querySelector('.sidebar-scrollbox');
-        pageElement.style.backgroundImage = 'none';
-        pageElement2.style.backgroundImage = 'none';
-    }
-
-    // 若当前 mdbook 主题为 Light 或 Rust ，则将 giscuz 主题设置为 light
-    var theme = "transparent_dark";
-    if (themeClass.indexOf("light") != -1 || themeClass.indexOf("rust") != -1) {
-        theme = "light";
+    } else {
+        pagePath = "index";
     }
 
     var script = document.createElement("script")
