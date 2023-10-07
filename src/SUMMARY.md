@@ -29,7 +29,7 @@
 
 # 链钥密码学🪄
 - [Chain Key](3.链钥密码学(ChainKey)/1.ChainKey.md)
-- [vetkeys](3.链钥密码学(ChainKey)/VetKeys.md)
+- [VETKeys](3.链钥密码学(ChainKey)/VetKeys.md)
 
 # 容器🧰
 - [Canister](4.容器(Canister)/1.Canister.md)
