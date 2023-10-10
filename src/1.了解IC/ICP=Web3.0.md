@@ -40,7 +40,7 @@
 * O 指 Oracle 数据库（RDBMS）；
 * E 指 EMC 中高端 SAN 存储。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FYvcpU5IA0KyIduHL2LijW.png" alt="img" style="zoom:100%;" />
+<img src="assets/ICP = Web 3.0/1.png" alt="img" style="zoom:100%;" />
 
 去 IOE 的原因主要有以下三点，但第一点是本质原因，后两者更间接：
 
@@ -134,13 +134,13 @@
     * **消息路由层**：根据共识层传来的任务,准备好各 Canister 的输入队列。执行完毕后,它还负责接收 Canister 产生的输出,并按需转发给本地或其他区的 Canister。此外,它还负责记录和验证用户请求的响应。
     * **执行层**，为 Canister 提供运行时环境，按照调度机制有序读取输入，调用相应Canister 完成任务，并将更新后的状态和产生的输出返回给消息路由层。它利用随机数带来的非确定性，以保证计算的公平性和可审计性。因为在某些情况下，Canister 的行为需要是不可预测的。例如，在进行加密操作时，需要使用随机数来增加加密的安全性。此外，Canister 的执行结果需要具有随机性，以避免攻击者通过分析 Canister 的执行结果来发现漏洞或者预测 Canister 的行为。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F9EqellYxJ02beo4Yz4yCX.png" alt="4-layers of ICP" style="zoom:67%;" />
+<img src="assets/ICP = Web 3.0/2.png" alt="4-layers of ICP" style="zoom:67%;" />
 
 4-layers of ICP
 
 ### 关键组件 / Key Components
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F3HV_lgwrqmYtukJdiKtGC.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/3.png" alt="img" style="zoom:50%;" />
 
 * 从组成成分看，
     * **子网（Subnet）**：支持无限扩展，每一个子网就是一个小型区块链。Subnet 之间通过 Chain Key 技术通信，因为已经在子网内部达成共识了，所以只要通过 Chain Key 验证就行了。
@@ -154,11 +154,11 @@
     * **注册表（Registry）**：由 NNS 维护的数据库，包含实体（如 Replica、canister、Subnet）之间的映射关系，跟现在的 DNS 工作原理有点像。
     * **Cycles**：本地代币，代表用于支付 canister 运行时消耗的资源的 CPU 配额。非要用中文表示的话，我会用 “**计算周期**” 这个词，因为 cycles 主要是指用于支付计算资源的单位。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FnVzcHcrEs-LzYbYPlFpvI.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/4.png" alt="img" style="zoom:50%;" />
 
 ### 关键创新技术 / Key Innovative Technologies
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FcJC1gAqHshl5Uu_l1JEk5.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/5.png" alt="img" style="zoom:30%;" />
 
 * 从底层来看，采用了 Chain-key 技术，其中
     * **Threshold BLS signatures**：ICP 实现了阈值签名方案，对于每一个 Subnet，有一个公共的可验证的公钥，而它对应的私钥却是拆分成多份 share 的，每一份 share 由这个 Subnet 中的一个 Replica 去持有，只有同一个 Subnet 中超过阈值数量的 Replica 对消息签名了才被认为是有效。这样 Subnet 之间，Replica 之间传递的消息都是加密但可快速验证的，既保证了隐私性，又保证了安全性。其中 BLS 算法就是比较著名的一种阈值签名算法，它是唯一能产生非常简单且高效的阈值签名协议的签名方案，且签名是唯一的，这意味着对于给定的公钥和消息，只有一个有效的签名。
@@ -171,7 +171,7 @@
         1. **Summary blocks**：每个 epoch 的第一个区块是一个 summary block，它包含了一些特殊的数据，用于管理不同的阈值签名方案。其中，一个低阈值方案用于生成随机数，而一个高阈值方案用于认证子网的复制状态。
         2. **Catch-up packages (CUPs)**：CUPs是一种用于快速同步节点状态的技术，它可以让新加入的节点快速地获取到当前状态，而不需要重新运行共识协议。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FartXErgC7ELGgv9YMLl0T.png" alt="img" style="zoom:37%;" />
+<img src="assets/ICP = Web 3.0/6.png" alt="img" style="zoom:37%;" />
 
 我对整个 IC 底层技术的逻辑性推导为：
 
@@ -193,11 +193,11 @@
 * 从特性上来看
     * **反向 Gas 模型**：传统的区块链系统大多要求用户先持有原生代币，例如 ETH，BTC，然后消耗原生代币来支付交易手续费。这增加了新用户的进入障碍，不符合人们的使用习惯。为什么我刷个 Tiktok 一定要先持有 Tiktok 的股票？而 ICP 采用了反向 Gas 模型设计，用户可以直接使用 ICP 网络，项目方会负责手续费，这降低了使用门槛，更契合了互联网服务的习惯，有利于获得更大规模的网络效应，**从而支持更多用户的加入**。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FA19vNdDvQ7XUP7aqrniko.png" alt="img" style="zoom:75%;" />
+<img src="assets/ICP = Web 3.0/7.png" alt="img" style="zoom:75%;" />
 
 * **稳定的 Gas**：对于市面上的其他公链来说，为了链的安全性，也为了转账需要，就会有人去买原生代币，矿工就去拼命地挖，或者有人拼命地屯原生代币，这样就为这条公链贡献了算力例如 Bitcoin，或者为这条公链提供了质押经济安全性例如 Ethereum。可以说我们对 btc/eth 的需求其实是来源于 Bitcoin/Ethereum 公链对于算力/质押的要求，本质上也是链的安全要求。因此，只要是直接用原生代币来付 gas 的链，以后还是会贵的，也许现在原生代币便宜，但是只要链本身生态起来了，后面都会变贵。而 ICP 不一样，ICP 区块链中消耗的 Gas 叫 Cycles，这是通过消耗 ICP 兑换而来的，Cycles 在算法调节下处于稳定，与 1 SDR 锚定（SDR 可以看作综合多国法币计算后的稳定单位）。因此不管 ICP 以后涨到多少，你在 ICP 里面做任何事情消耗的金钱跟今天都是一样的（不考虑通胀）。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FxZE5RPfkS34H4VnEaKeEC.png" alt="img" style="zoom:37%;" />
+<img src="assets/ICP = Web 3.0/8.png" alt="img" style="zoom:37%;" />
 
 * **Wasm**：使用 WebAssembly (Wasm) 作为代码执行的标准，开发者可以使用多种流行的编程语言（比如 Rust，Java，C++，Motoko 等）去写代码，**从而支持更多开发者的加入**。
 * **支持跑 AI 模型**：Python 语言也可以编译为wasm，Python 用户量世界名列前茅，也是 AI 的第一语言，比如矩阵和大整数计算。已经有人在 [IC 上跑 Llama2 模型](https://forum.dfinity.org/t/llama2-c-llm-running-in-a-canister/21991)了，如果说未来 AI + Web3 的概念发生在 ICP 上，我一点也不会惊讶。
@@ -206,7 +206,7 @@
 * **DAO 控制代码升级**：现在许多 DeFi 协议，项目方拥有完全控制权，可以任意发起重大决定如暂停运营、卖出资金等，完全不经过社区投票商议，这种 case 相信大家都有见证或者听说过。相比之下，ICP 生态下的 DAPP 代码运行在 DAO 控制的容器内，即使某个项目方在投票中占较大比重，但也实行公示投票流程，满足了本文最开始描述的区块链透明化的必要条件。这种流程保证机制更能反映社区意愿，相对目前的其他公链项目来说**在治理上实现程度更优**。
 * **协议自动升级**：当需要升级协议时，可以在summary block中添加新的阈值签名方案，从而实现自动协议升级。这种方式可以确保网络的安全性和可靠性，同时避免了硬分叉所带来的不便和风险。 具体来说，ICP 中的 Chain Key 技术可以确保网络的安全性和可靠性，它通过一种特殊的签名方案来维护区块链状态机。在每个 epoch 的开始，网络会使用一个低阈值签名方案来生成随机数，然后使用一个高阈值签名方案来认证子网的复制状态。这种签名方案可以确保网络的安全性和可靠性，同时也可以实现自动协议升级，从而**避免了硬分叉所带来的不便和风险**。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FmNeId3Qwm6NDlHbaKKySS.png" alt="Proposal Voting" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/9.png" alt="Proposal Voting" style="zoom:50%;" />
 
 Proposal Voting
 
@@ -217,7 +217,7 @@ Proposal Voting
 
 Fast forwarding的优点是可以**让新加入的节点快速地获取到当前状态，不需要像一些其他公链一样必须从头开始出块**。这样可以加速网络的同步和扩展，同时，它也可以减少节点之间的通信量，从而提高网络的效率和可靠性。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F1nnD07Z2H77jOgd70YePz.png" alt="fast forwarding" style="zoom:65%;" />
+<img src="assets/ICP = Web 3.0/10.png" alt="fast forwarding" style="zoom:65%;" />
 
 fast forwarding
 
@@ -231,7 +231,7 @@ fast forwarding
         * 通过使用临时会话密钥，不同 dapp 无法互相追踪用户身份。实现真正的匿名和私密访问。
         * 用户可以方便地在多设备间同步管理自己的 Internet Identity，但设备本身也需要相应的生物识别或硬件钥匙进行授权。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F4CYTUD2FuzQRghUkJyMxx.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/11.png" alt="img" style="zoom:50%;" />
 
 * Internet Identity 的一些优点如下：
     * 不需要记住密码。使用 biometrics 功能如指纹识别直接登录，无需设置和记住复杂密码。
@@ -254,7 +254,7 @@ fast forwarding
     * 正在不断更新升级相关密码学算法和安全流程，例如加入多重签名等更安全的机制。
     * 开放源代码和去中心化设计优化透明度，利于社区协作提升安全性。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2Fq2-PDsh0goJqEg3ag-CTh.png" alt="Internet Identity" style="zoom:60%;" />
+<img src="assets/ICP = Web 3.0/12.png" alt="Internet Identity" style="zoom:60%;" />
 
 Internet Identity
 
@@ -268,7 +268,7 @@ Internet Identity
         * 从视野上来看，他早在10多年前就提出了去中心化互联网的概念，长期推进这个宏伟项目是一个不易之举，目前来看他的设计思路很具备前瞻性。
     * 在技术团队上，Dfinity 的实力非常强大。Dfinity 基金会集结了大量顶尖的密码学和分布式系统专家，例如 [Jan Camenisch](https://www.linkedin.com/in/jancamenisch/), [Timothy Roscoe](https://inf.ethz.ch/people/person-detail.roscoe.html), [Andreas Rossberg](https://people.mpi-sws.org/~rossberg/), [Maria D.](https://www.linkedin.com/in/mariadubovitskaya/), [Victor Shoup](https://www.linkedin.com/in/victor-shoup-a3405284/) 等，**甚至 BLS 密码算法作者中的 “L” - [Ben Lynn](https://www.linkedin.com/in/benjamin-lynn-51832a8/) 也在 Dfinity 任职**。这为 ICP 的技术创新提供了强有力的支持。区块链项目的成功离不开技术，而顶尖人才的聚集能带来技术突破，这也是 ICP 一个关键的优势所在。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2Fjqp8z_a_C3Oht0alguYSL.png" alt="Dfinity Foundation Team" style="zoom:67%;" />
+<img src="assets/ICP = Web 3.0/13.png" alt="Dfinity Foundation Team" style="zoom:67%;" />
 
 Dfinity Foundation Team
 
@@ -276,7 +276,7 @@ Dfinity Foundation Team
 
 这一块内容如果也讲的话，本文就太长了，因此我决定后面单独写一篇文章给大家详细分析下。本文更侧重从区块链行业的发展方向看，为什么 ICP 机会很大。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F2MEYK2t11T7zcWcmoJ4BY.png" alt="img" style="zoom:75%;" />
+<img src="assets/ICP = Web 3.0/14.png" alt="img" style="zoom:75%;" />
 
 ### 应用 / Applications
 
@@ -284,22 +284,22 @@ Dfinity Foundation Team
 * 有很多人说 IC 上由于很难做到全局状态一致，因此天然不适合做 DeFi，但是我觉得这个问题本身就是错误的。**不是全局状态一致难做，是低延迟下的全局状态一致难做**。如果你能接受 1 分钟的时间，全球 1 万台机器也可以做全局一致性。Ethereum 和 BTC 现在这么多节点，不是已经被迫实现了高延迟下的全局状态一致嘛，也因此它们目前无法做到横向的无限扩展。IC 通过切分子网的方式首先解决横向无限扩展的问题，至于低延迟下的全局状态一致，通过强一致性的分布式一致性算法，良好设计的网络拓扑，高性能的分布式数据同步，时间戳有效校验，成熟的容错机制，也是可以达成的。但是实话实说，在 IC 应用层面上做一个交易平台和现在华尔街那批人做的高性能交易平台难度会更大，不仅仅是多机房达成一致。但是，难度大不代表完全不能做，而是要先解决很多技术问题，终归会找到一种适中的状态，既保证了安全性，也保证了人们可以接受的体验。比如下面的 ICLightHouse。
 * [ICLightHouse](https://iclight.house/)，一个全链上的 orderbook dex，全链上什么概念？多少技术难点要解决？在别的公链上这连想都不敢想，但是在 IC 上最起码 it’s doable，让我们看到了希望。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FV2Ota111Ozu-DZgXxnDh2.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/15.png" alt="img" style="zoom:50%;" />
 
 * [OpenChat](https://oc.app/home)，一个体验非常棒的去中心化聊天应用，我目前在整个区块链行业没有看见过第二个这样的产品，之前有很多其他团队也在这个方向做过尝试，最终都因为各种各样的技术问题失败了，归根结底还是用户觉得体验不行，比如速度实在是太慢了，发一条消息要 10 秒，接收别人的消息也要 10 秒。但是，在 ICP 上三个人的一个小团队就做出了这么成功的产品，到底有多丝滑大家自己去体验。欢迎加入组织，在这里你可以享受到思想的碰撞，且一定程度上可以享受到言论自由的爽感。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FT50KwyxkwsIMPPa9kGdgO.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/16.png" alt="img" style="zoom:50%;" />
 
 * [Mora](https://mora.app/)，一个属于超级创作者的平台，在这里每一个人都可以创建一个星球，打造自己的个体品牌，且你输出的内容永远是属于你自己的，甚至可以支持付费阅读。堪称是去中心化的知识星球了，我现在已经每天都要在上面刷新文章了。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FEc9uDA5SXNBM0lUp-4Wk_.png" alt="Mora - 0xkookoo" style="zoom:67%;" />
+<img src="assets/ICP = Web 3.0/17.png" alt="Mora - 0xkookoo" style="zoom:67%;" />
 
 Mora - 0xkookoo
 
 * OpenChat 和 Mora 应用是我**真真实实基本上每天都在用的产品**，让人有一种离不开的舒适感，两个词形容就是自由和充实。
 * 目前已经有一些团队在 IC 上开发游戏应用了，我觉得全链游戏这个叙事可能最终会由 IC 来接管。就像我之前写的[这篇文章里面的 GameFi 部分](https://mirror.xyz/0xkookoo.eth/BF7jfmieDL4AxzQKRuyCF0MzZ7mmmrVlCuF5CRoAbAk)所说的，游戏可玩性和趣味性是项目方要考虑的事情，可玩性在 IC 上是更容易实现的，期待 [Dragginz](https://yegk3-bqaaa-aaaae-aajza-cai.icp0.io/) 的大作。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2FNGzR_v08hmmwWQ-3_N50g.png" alt="img" style="zoom:67%;" />
+<img src="assets/ICP = Web 3.0/18.png" alt="img" style="zoom:67%;" />
 
 ### 总结 / Summary
 
@@ -326,7 +326,7 @@ Mora - 0xkookoo
 
 本文只是为了从区块链行业未来发展方向来聊一聊为什么 ICP 很有可能会是区块链 3.0 的创新驱动者，但不可否认的是 ICP 的 Tokenomics 设计上确实存在一些问题，生态也暂时没有爆发，目前 ICP 距离我心目中最终的区块链 3.0 还需要继续努力。不过不用担心，这个事情本来就很难，即使是 Dfinity Foundation 也已经准备好了 20 年的 Roadmap，主网上线才 2 年就已经达成这么大的成就了，目前也已经利用密码学方式在对接 BTC 和 ETH 生态，相信 3 年后会更上一层楼。
 
-<img src="assets/ICP = Web 3.0/imageurl=https%3A%2F%2Fimages.mirror-media.xyz%2Fpublication-images%2F6kXVymo2FI04Jc1j4gygm.png" alt="img" style="zoom:50%;" />
+<img src="assets/ICP = Web 3.0/19.png" alt="img" style="zoom:50%;" />
 
 
 
