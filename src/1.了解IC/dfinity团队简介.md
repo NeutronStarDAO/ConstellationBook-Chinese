@@ -12,3 +12,4 @@
 
 
 
+Dfinity 的创新能力吸引了很多强大的开发者加入，BLS 算法创始人之一、谷歌高级工程师 Ben Lynn ，WebAssembly 虚拟机设计者之一、谷歌高级工程师 Andreas，最早的比特币 Asic 挖矿算法发明者 Timo ，身份验证加盟协议 Identity Mixer 发明人、IBM 首席研究员 Jan 等优秀开发者都加入了 Dfinity 。
