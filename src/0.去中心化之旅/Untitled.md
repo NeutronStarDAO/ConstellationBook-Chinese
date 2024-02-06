@@ -28,7 +28,6 @@
 
 
 
-
 互联网行业呈现出明显的寡头化趋势，少数巨头企业垄断了互联网的关键领域，掌握了大量用户数据和市场份额，形成了强大的市场地位。这种寡头化现象不仅在在线搜索、社交媒体、电子商务等领域表现明显，而且在云计算、人工智能等新兴技术领域也有所体现。
 
 寡头化对互联网生态系统带来了一系列的影响。首先，由于少数企业垄断了市场，导致其他竞争者难以生存和发展，限制了市场竞争的程度。其次，寡头化可能导致创新受到抑制，因为主导地位的企业可能更加谨慎，不愿冒险尝试新的理念和技术。此外，用户的选择空间受到了限制，因为他们很难找到真正多样化的服务和产品。
@@ -40,16 +39,15 @@
 
 
 
-
 互链网推进社会治理
 
 现在我们来看一下互链网世界的生态，如果说互联网像交响乐，那么互链网更像爵士乐，爵士乐没有指定指挥者，指挥者可以是吉他手、鼓手或者是其他乐队成员，每个乐队成员都遵循着节拍去进行演奏，观众也可以参与进去，所以是一个自组织，自下而上的组织形式，是在使命感的驱动下运作的。在互链网世界里，靠的是共识去治理，计算机代码是各类共识机制的手段。由于是个自组织形式，所以治理共识、机器共识和价值共识是整个互链网中的核心思想。
 
-在互链网世界当中每个人都拥有一个网信空间节点，个人隐私得到充分的保护，人类在互链网世界中能实现真正的数字镜像到数字李生直到数字永生。在互联网世界中，我们个体并不拥有个人信息的所有权，我们的个人信息被互联网巨头无偿占有，我们也不拥有属于自己的唯一ID。但是在互链网世界里，每个人都拥有分布式的DID个人身份，该身份是你在整个互链网世界当中的唯一识别码，这个DID不是说是哪个机构给你发的，是互链网世界的底层基础设施，进来的每个人都会有一个这样的身份码，就像人出生以后就有了身份证一样。
+在互链网世界当中每个人都拥有一个网信空间节点，个人隐私得到充分的保护，人类在互链网世界中能实现真正的数字镜像到数字李生直到数字永生。在互联网世界中，我们个体并不拥有个人信息的所有权，我们的个人信息被互联网巨头无偿占有，我们也不拥有属于自己的唯一 ID 。但是在互链网世界里，每个人都拥有分布式的 DID 个人身份，该身份是你在整个互链网世界当中的唯一识别码，这个 DID 不是说是哪个机构给你发的，是互链网世界的底层基础设施，进来的每个人都会有一个这样的身份码，就像人出生以后就有了身份证一样。
 
 互链网保护隐私
 
-保护数字安全和隐私成为整个互链网的最基本共识，所以我们在构建互链网时，首先要在底层协议和基础设施建设时保证安全和隐私。在互联网世界信息点对点进行传输，互联网底层协议并不保证信息的安全和到达，TCP/IP协议假定发送和接收方都是真实和可信任的，这就导致了互联网上的用户经常被虚假信息和欺诈信息骚扰。而在互链网底层协议里，在信息传输过程中，发送方和接收方的个人隐私信息都得到充分的保护，发送方不需要知道接收方的具体信息，反之接收方也不需要知道发送方的信息。信息的准确送达靠的是不可逆的密码学技术，所以在互链网世界里，信息传输和交易达成是建立在零知识证明的理论上完成的，从而在机制上保障了信息的安全性、唯一性和可追溯性，意味着想要在这样的网络环境中作恶将要付出相当大代价。
+保护数字安全和隐私成为整个互链网的最基本共识，所以我们在构建互链网时，首先要在底层协议和基础设施建设时保证安全和隐私。在互联网世界信息点对点进行传输，互联网底层协议并不保证信息的安全和到达，TCP/IP 协议假定发送和接收方都是真实和可信任的，这就导致了互联网上的用户经常被虚假信息和欺诈信息骚扰。而在互链网底层协议里，在信息传输过程中，发送方和接收方的个人隐私信息都得到充分的保护，发送方不需要知道接收方的具体信息，反之接收方也不需要知道发送方的信息。信息的准确送达靠的是不可逆的密码学技术，所以在互链网世界里，信息传输和交易达成是建立在零知识证明的理论上完成的，从而在机制上保障了信息的安全性、唯一性和可追溯性，意味着想要在这样的网络环境中作恶将要付出相当大代价。
 
 互联网成为欺诈的温床
 
@@ -63,7 +61,7 @@
 
 先说往西走（互联网+区块链），由于前面提到互联网存在的种种弊病，我们可以用区块链技术来改善和优化技术架构，同时部分解决信息的安全和隐私问题。我们看到许多行业和政府部委都纷纷提出利用区块链技术来改善相关行业的基础设施、商业模式和行业治理，且在很多行业区块链和产业融合已经落地，通过区块链技术进行整合，来解决一些行业问题，如在供应链金融、大健康、保险、医疗和数字版权等领域，区块链的应用已纷纷落地。
 
-大家知道TCP/IP协议的设计之初是为了建立一个固网，而非移动网，整个协议是支持端到端的协议，且不可控不可观。互联网最初源自美国军方的一张网，后来美国军方觉得需要把合作伙伴拉进来，以便他们能够参与一些项目合作和信息分享等等。TCP/IP的传输是个Best Efforts协议，不是QualityGuarantee 协议。例如你发邮件时，你无法确定对方什么时
+大家知道 TCP/IP 协议的设计之初是为了建立一个固网，而非移动网，整个协议是支持端到端的协议，且不可控不可观。互联网最初源自美国军方的一张网，后来美国军方觉得需要把合作伙伴拉进来，以便他们能够参与一些项目合作和信息分享等等。TCP/IP 的传输是个 Best Efforts 协议，不是 QualityGuarantee 协议。例如你发邮件时，你无法确定对方什么时
 
 
 
@@ -79,7 +77,7 @@
 
 互链网建立新生态
 
-5G的商用化会加快物联网和工业互联网的普遍应用，同时会产生比现在多上千倍的数据，大部分数据地域性很强，这些数据没有必要存到云存储。比如自动驾驶或者是机器人所产生的数据和计算不需要回传到云计算中心，否则会产生延时等问题。从云优先到边缘优先，如何使用边缘智能非常重要。云计算就像人的大脑，手脚就像边缘存储和计算，我们绝对不能变成头脑发达而四肢简单。边缘智能需要把区块链、边缘存储计算和5G
+5G的商用化会加快物联网和工业互联网的普遍应用，同时会产生比现在多上千倍的数据，大部分数据地域性很强，这些数据没有必要存到云存储。比如自动驾驶或者是机器人所产生的数据和计算不需要回传到云计算中心，否则会产生延时等问题。从云优先到边缘优先，如何使用边缘智能非常重要。云计算就像人的大脑，手脚就像边缘存储和计算，我们绝对不能变成头脑发达而四肢简单。边缘智能需要把区块链、边缘存储计算和 5G 
 
 
 
@@ -95,33 +93,14 @@ https://academy.binance.com/en/articles/what-are-ordinals-an-overview-of-bitcoin
 
 
 
-
-
-## Asynchronous messaging
-
-As mentioned earlier, a canister bundles its code and data (state). This makes the canister state isolated from that of other canisters. Users interact with canisters by sending *ingress messages*. Canisters may also interact with other canisters by sending messages to other canisters on the same or different subnets. We collectively refer to messages sent to canisters, either by users or other canisters, as *messages* or *canister messages*. Each message can lead to the execution of canister smart contract code and the change of (replicated) canister state. Messages sent to canisters are *asynchronous*: when a message is sent, the sender is not blocked by this operation, but can perform other computations until the response to the message is received. In most other blockchains, smart contract invocation is synchronous, i.e., a call to another smart contract is blocking, and there is one global state. This asynchronous messaging and isolated canister state results in a "loose coupling" between different canisters and subnets. The secure asynchronous cross-subnet (XNet) messaging between canisters and the resulting loose coupling of subnets are key principles that unlock the scalability of the IC by means of adding new subnets: the state of each canister on a subnet can only be changed through asynchronous messages to the canister and thus canisters on the same or different subnets may execute concurrently. In terms of the programming model, asynchronous communication is a major difference between the IC and most other blockchains; however, it is the key to achieving unprecedented scalability.
-
-
-
-
-
-Chain Key 添加：
-
-Jens Groth 这位大佬在密码学界可是数一数二的人物。他研究零知识证明技术，让两个不相识的人在不透露任何关键信息的情况下证明某个论据是正确的。这在保护隐私方面有巨大应用，大名鼎鼎零知识证明算法 Groth16 就是他发明的。
-
-Groth 早年在丹麦念数学，后来发现自己非常感兴趣密码学，就转到密码学这一行。他跟着几位大牛读研究生，拿到硕士学位。后来和一家公司合作，做了一个关于电子投票的工业博士。
-
-毕业后他去了 UCLA 做博士后，认识了他最要好的合作伙伴 Amit Sahai 。两人一拍即合，研究怎么用配对密码设计简单高效的零知识证明。经过长时间烦恼和努力，他们终于取得重大突破，发明了实用的配对基零知识证明技术。这项技术后来应用很广，在许多密码方案中发挥重要作用。
-
-这项技术获得了两次时间考验大奖，可见其影响力。后来 Groth 还继续研究，发明了零知识简明非交互证明 (NIZK) ，把效率提高到一个新高度。这为隐私保护区块链的发展奠定了基础。
-
-Groth 现在在 DFINITY 基金会研究 Internet Computer 的安全性，设计 NIZK 增强其隐私保护。他的工作对区块链技术进步作出了巨大贡献。工作之外，他在业余时间他喜欢即兴表演和羽毛球。
-
-
-
-
-
 添加更多阈值中继介绍在造梦家的冒险之旅：https://dfinity.org/pdf-viewer/pdfs/viewer?file=../library/threshold-relay-blockchain-stanford.pdf
 
 
+异步消息传递
 
+如前所述，一个 Canister（指代互联网计算机中的一个智能合约容器）包含其代码和数据（状态）。这使得该 Canister 的状态与其他 Canister 的状态隔离开来。用户通过发送入口消息与 Canister 进行交互。Canister 还可以通过向同一或不同子网上的其他 Canister 发送消息与其他 Canister " 互动。
+我们通称发送给 Canister 的消息，无论是由用户还是其他 Canister 发送的，为消息或 Canister 消息。
+每条消息都可能导致执行 Canister 智能合约代码并更改（复制的）Canister 状态。发送给 Canister 的消息是异步的：当发送消息时，发送方不会被此操作阻塞，而是可以执行其他计算，直到接收到消息的响应。在大多数其他区块链中，智能合约调用是同步的，即调用另一个智能合约是阻塞的，并且存在一个全局状态。
+这种异步消息传递和孤立的 Canister 状态导致了不同 Canister 和子网之间的 " 松耦合 " 。
+安全的异步跨子网（XNet）消息传递以及由此产生的子网"松耦合"是通过添加新的子网来解锁互联网计算机（IC）可扩展性的关键原则：子网上每个 Canister 的状态只能通过对 Canister 的异步消息进行更改，因此同一子网或不同子网上的 Canister 可以并发执行。
+在编程模型方面，异步通信是 IC 与大多数其他区块链之间的一个主要区别；然而，这是实现前所未有的可扩展性的关键。
