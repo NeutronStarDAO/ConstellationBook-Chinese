@@ -268,3 +268,7 @@ img:hover {
         transform: translateY(-117%);
     }
 }
+
+a:hover {
+    text-decoration: none !important;
+}

@@ -1,427 +1,158 @@
 https://juejin.cn/post/7118221301986115591
 
+BLS：
+
+https://mp.weixin.qq.com/s?__biz=MzA5NzI4MzkyNA==&mid=2247484307&idx=1&sn=74746c1be36e51e49ec6282d14db60b0&scene=21#wechat_redirect
+
+https://mp.weixin.qq.com/s?__biz=MzA5NzI4MzkyNA==&mid=2247484314&idx=1&sn=011df46da3c8d6df2f5be1e3eb5f8672&scene=21#wechat_redirect
+
+https://mp.weixin.qq.com/s?__biz=MzA5NzI4MzkyNA==&mid=2247484374&idx=1&sn=e926a47ee765ce9e73ffb13aebec34eb&chksm=90a279eda7d5f0fbb52393bac6bb69c07828a6176412397f8c93fcfb2ca012d36566c209abbf&cur_album_id=1648092557035241479&scene=189#wechat_redirect
+
+https://mp.weixin.qq.com/s/ymElad5WmXAbvgklxVKL-g
+
+https://blog.csdn.net/weixin_39928818/article/details/113317367
+
+https://blog.csdn.net/mutourend/article/details/121199130
+
+https://blog.csdn.net/Sanayeah/article/details/111423092
+
+https://blog.csdn.net/mutourend/article/details/121199130
+
+https://zhuanlan.zhihu.com/p/63734137?utm_id=0
+
+https://zhuanlan.zhihu.com/p/571805820
+
+https://blog.csdn.net/Lisa_8888888/article/details/103916637
+
+https://blog.csdn.net/Sanayeah/article/details/115062129
+
+https://mp.weixin.qq.com/s?__biz=MzU5MzMxNTk2Nw==&mid=2247484583&idx=1&sn=838d95bdf8fe942df4b74de4b77ad6c5&chksm=fe1315b7c9649ca172fe2e58b9930b7381571d0aa6f06b07bdaa59d00c3fa7ada0bd2f02922f&scene=21#wechat_redirect
+
+https://blog.csdn.net/mutourend/article/details/106796297
 
 
 
 
-# **解释一下：**
 
-# **Basics of Polynomials for Cryptography**
+数字证书
 
-* **polynomials**
-* Mar 16, 2020
+数字证书是一种权威的电子证明，由权威公正的第三方证书颁发机构（CA）签发，用来证明公钥拥有者的身份。数字证书中包含了公钥信息、拥有者身份信息，以及 CA 对这份文件的数字签名，用以保证这份文件的整体内容正确无误。数字证书被广泛用于需要身份验证和数据安全的领域，简单来说就是数字证书能够证明这个公钥被谁拥有。数字证书主要用来保证信息保密、身份确认、不可否认性和数据完整性，常见的格式是 X.509 格式。
 
-A **polynomial** ϕ of **degree** d is a vector of d+1 **coefficients**:
-
-ϕ=[ϕ0,ϕ1,ϕ2,…,ϕd](1)
-
-For example, ϕ=[1,10,9] is a degree 2 polynomial. Also, ϕ′=[1,10,9,0,0,0] is also a degree 2 polynomial, since the zero coefficients at the end do not count. But ϕ′′=[1,10,9,0,0,0,1] is a degree 6 polynomial, since the last non-zero coefficient is ϕ6=3.
-
-*“A list of numbers? That makes no sense!”* Don’t panic! You are probably more familiar to polynomials expressed as function of a variable X:
-
-ϕ(X)=ϕ0+ϕ1⋅X+ϕ2⋅X2+⋯+ϕd⋅Xd]=∑i=0d+1ϕiXi(2)(3)
-
-For example, ϕ=[1,10,9] and ϕ(X)=9X2+10X+1 are one and the same thing.
-
-**Note:** The degree is defined as the index i of the last non-zero coefficient: deg(ϕ)=i s.t. ∀j>i,ϕj=0.
-
-## **The basics of polynomials**
-
-### **Roots of polynomials**
-
-We say z is a *root* of ϕ(X) if ϕ(z)=0. In this case, ∃q(X) such that ϕ(X)=q(X)(X−z).
-
-But what if z is also a root q(X)? We can capture this notion as follows: we say z has a *multiplicity* k if ∃q′(X) such that ϕ(X)=q′(X)(X−z)k.
-
-### **The polynomial remainder theorem**
-
-This theorem says that:
-
-ϕ(a)=y⇔∃q(X),ϕ(X)=q(X)(X−a)+ϕ(a)(4)
-
-This property is leveraged by certain cryptosystems**1**.
-
-### **Dividing polynomials**
-
-Division of polynomials conceptually resembles division of integers.
-
-Specifically, dividing a polynomial a(X) by b(X) gives a **quotient** q(X) and a **remainder** r(X) such that:
-
-a(X)=q(X)b(X)+r(X)(5)
-
-Importantly, degr<degb and, if dega≥degb, then degq=dega−degb. Otherwise, q(X)=0.
-
-NZ
+用户想要获得数字证书，应该先向 CA 提出申请，CA 验证申请者的身份后，为其分配一个公钥并且与其身份信息绑定。CA 为该信息进行签名，作为数字证书的一部分，然后把整个数字证书发送给申请者。
 
 
 
-Here is a brief explanation of some basics of polynomials that are relevant for cryptography:
+Hash 后的摘要
 
-* A polynomial is a mathematical expression involving a sum of terms, each term consisting of a constant (called a coefficient) multiplied by variables raised to whole number powers. For example, 1 + 2x + 3x^2 is a polynomial.
-* The degree of a polynomial is the highest power of the variable(s) in the polynomial. In the above example, the degree is 2.
-* Polynomials can have roots - values of the variable(s) that make the polynomial equal to zero. For example, x=1 is a root of the polynomial x^2 - 2x - 3.
-* The polynomial remainder theorem relates evaluation of a polynomial at a value to polynomial division. It says that dividing a polynomial by (x-a) results in a remainder that is equal to evaluating the original polynomial at x=a.
-* Polynomials can be divided similar to integer division, resulting in a quotient polynomial and a remainder polynomial of lower degree. This is useful for tasks like polynomial factorization.
-* Polynomials are widely used in cryptography, such as in RSA which relies on properties of modular polynomial arithmetic. Factoring polynomials is also an important hard mathematical problem leveraged in cryptosystems.
+当需要鉴别数字证书的真伪时，只需要用 CA 的公钥对数字证书上的签名进行验证即可，验证通过则证明数字证书有效。
 
-Copy
+数字证书结构
+
+数字证书的结构一般采用X.509格式，X.509格式使用 ASN.1(Abstract Syntax Notation One）抽象语法标记来表示。ASN.1是一种由国际标准组织（ISO/ITU-T）制定的标准，描述了一种对数据进行表示、编码、传输和解码的数据格式，用于实现平台之间的互操作性。X.509 格式的数字证书结构如图1-4所示。
+
+版本(Version)
+
+序列号(Serial Number)
+
+使用CA的私
+
+签名算法(Signature Algorithm)
+
+钥进行加密
+
+颁发者（Issuer)
+
+有效期（Validity)
+
+主体名(Subject Name)
+
+公钥信息(Subjecl Publlc Key Info)
+
+扩展信息（Extensions)
+
+签名(Signature)
+
+
+
+图1-4X.509格式的数字证书结构
+
+在X.509格式的数字证书中，各个字段含义如下。
+
+·版本：数字证书使用X.509规范的版本，目前普遍使用 v3 版本。
+
+·序列号：CA会为每个颁发的数字证书分配一个整数，作为数字证书的唯一标识。
+
+·签名算法：CA颁发数字证书使用的签名算法。
+
+·有效期：包含数字证书的起止日期。
+
+·主体名：该数字证书拥有者的名称，如果与颁发者相同，则说明该数字证书是一个
+
+自签名证书。
+
+·公钥信息：对外公开的公钥及所使用的公钥生成算法。
+
+
+
+扩展信息：通常包含数字证书的用法、证书吊销列表（Certificate Revocation List,CRL）的发布地址等可选字段。
+
+签名：颁发者用私钥对数字证书信息的签名。
+
+
+
+## 数字证书编码
+
+数字证书在计算机中的表示方法有所不同，但是都是可以相互转换的，常见的编码格式为 PKCS#12 、DER 和 PEM 。
+
+PKCS 标准是指由 RSASecurity 设计和发布的一组公钥加密标准。因此，RSASecurity 及其研究部门 RSALabs 有义务促进公钥技术的使用。为此，他们（从 20 世纪 90 年代初开始）开发了 PKCS 标准，并保留了对 PKCS 标准的控制权，宣布他们会在自己认为必要的时候进行改变或改进，因此，PKCS 标准在重要意义上并不是真正的行业标准，尽管名称如此。对于 PKCS 标准，常见的是标准 PKCS#12 ，其中 #12 是标准编号，文件后缀是 P12 。
+
+DER（可分辨编码规则）是一种用于存储 X.509 证书文件的流行编码标准。ASN.1 的可分辨编码规则是根据 X.509 规范对 BER 编码的约束得出的国际标准。DER 编码是有效的 BER 编码。DER 编码与 BER 编码相以，只是删除了一个发送者的选项。例如，在 BER 编码中，布尔值 true 可以用 255 种方式编码，而在 DER 编码中，只有一种方法可以编码布尔值 true 。DER 编码的完整规范在 RFC1421 中。
+
+X.509 证书文件最常用的编码方案是 PEM（隐私增强邮件）编码。PEM 编码的完整规范在 RFC 1421中。在 X.509 证书文件上进行 PEM 编码的想法非常简单：使用 Base64 编码对内容进行编码。编码后的文件后缀通常为 PEM ，将 Base64 编码输出括在两行之间：“-..- BEGIN CERTIFICATE ---” 和 “ …. END CERTIFICATE-- ” ，下面的例子是 PEM 编码的 X.509 证书结构示例。
+
+-----BEGIN CERTIFICATE--
+
+MIICSTCCAfWgAwIBAgIBATAKBggqhkjOPQQDAjBOMQkwBwYDVQQIEwAxCTAHBqNV BAcTADEJMAcGAlUECRMAMQkwBwYDVQQREwAxDjAMBgNVBAoTBWZsYXRvMQkwBwYD VQQLEwAxDjAMBgNVBAMTBW5vZGUyMQswCQYDVQQGEwJaSDEOMAwGAlUEKhMFZWNl cnQwIBcNMjAwNTIxMDUlMTEOWhgPMjEyMDAOMjcwNjUxMTRaMHQxCTAHBgNVBAgT ADEJMAcGAlUEBxMAMQkwBwYDVQQJEwAxCTAHBgNVBBETADEOMAwGAlUEChMFZmxh dG8xCTAHBgNVBAsTADEOMAwGAlUEAxMFbm9kZTExCzAJBgNVBAYTAlpIMQ4wDAYDVQQqEwVlY2VydDBWMBAGByqGSM49AgEGBSuBBAAKAOIABBI3ewNK21vHNOPG6U3X mKJohSNNz72QKDxUpRtOfCJHwaGYfSvY4cnqkbliclfckUTpCkFSRr4cqN6PURCF zkWjeTB3MA4GAlUdDwEB/wQEAwIChDAmBgNVHSUEHzAdBggrBgEFBQcDAgYIKwYB BQUHAwEGAioDBgOBCwEwDwYDVROTAQH/BAUwAwEB/zANBqNVHQ4EBqQEAQIDBDAP BgNVHSMECDAGgAQBAgMEMAwGAypWAQQFZWNlcnQwCgYIKoZIzjOEAwIDQgB3Cfo8/Vdzzlz+MW+MIVuYQkcNkACY/yU/IXD1sHDGZQWcGKr4NR7FHJgsbjGpbUiCofw4 4rK6biAEEAOcv1BQAA==
+
+----END CERTIFICATE---
+
+DER 编码的 X.509 证书文件是二进制文件，无法使用文本编辑器查看，但几乎所有应用程序都支持 DER 编码的证书文件。DER 编码的证书文件的文件扩展名为 “ .cer ” “ der ” “ .crt ” 。
+
+
+
+
+
+X.509 是常见通用的证书格式。所有的证书都符合为 Public Key Infrastructure（PKI）制定的 ITU-T X509 国际标准。X.509 是国际电信联盟-电信（ITU-T）部分标准和国际标准化组织（ISO）的证书格式标准。作为 ITU-ISO 目录服务系列标准的一部分，X.509 是定义了公钥证书结构的基本标准。1988 年首次发布，1993 年和 1996 年两次修订。当前使用的版本是 X.509 V3 ，它加入了扩展字段支持，这极大地增进了证书的灵活性。X.509 V3 证书包括一组按预定义顺序排列的强制字段，还有可选扩展字段，即使在强制字段中，X.509 证书也允许很大的灵活性，因为它为大多数字段提供了多种编码方案。
+
+
+
+
+
+1.10.4简单应用
+
+假设一个简单的场景，Alice 需要通过银行转给 Bob 一笔钱，使用之前的密码学知识就可以保证这个过程的安全可靠。
+
+可以通过对称加密的方式，生成公私钥对，其中，公钥 a 可以公开，作为银行账户，私钥b作为账户密码，不予公开。
+
+当 Alice 向 Bob 转 100 元时，可以在计算机中向银行发送这样一条请求<form:Alice,to:Bob, value:100>，表示Alice 向Bob转账100元。如果整个过程不加验证，被黑客发现这个漏洞后就可以不断地重复这个过程，直到把Alice的账户余额转空。
+
+为了表示这个交易确实是由 Alice发出的，可以增加 Alice的签名，用Alice的公钥a所对应的私钥对这个请求签名。整个请求就成了{<form:Alice, to:Bob, value: 100>,signature:foo}，这样银行收到这笔交易后，就可以用Alice的公钥，也就是a对交易进行验证，判断是不是由Alice发出的。
+
+但是由于 Alice 太过富有，转账成了{<form:Alice, to:Bob,value:1000000000.002>,signature: bar}，交易请求 <form:Alice,to:Bob,value：1000000000.002>体积太大，签名算法对大量数据的输入签名效率不高，这个时候，就可以采用消息摘要算法，减少计算签名输入的长度的工作量，如首先采用哈希算法计算Hash(<form:Alice,to:Bob, value:1000000000.002>)=baz，然后对摘要baz签名即可。当银行收到这笔交易时，同样先对交易计算哈希值，再验证签名即可。
+
+
+
+Schnorr 签名的工作原理：https://blog.oleganza.com/post/162861219668/eli5-how-digital-signatures-actually-work
+
+https://mp.weixin.qq.com/s?__biz=MzA5NzI4MzkyNA==&mid=2247483701&idx=1&sn=566750cfa2214e655efc37b31a7de131&scene=21#wechat_redirect
+
+https://drive.google.com/drive/folders/1TWfqWHpEzBIUPzcwvqsGYyNQQ-If-ejI
+
+
 
 
 
 请作为老师，用尽可能通俗易懂的、口语化的方式给不了解它的人详细讲解以下内容，可以用比喻、类比的手法解释难懂的概念，如果能达到让一个高中生听懂的地步就很好了：
-
-NZ
-
-
-
-好的,我来用通俗的语言为你解释一下多项式在密码学中的基本知识。
-
-多项式就像是一个变量x的指数函数,它由不同次方项的系数相加而成。比如2 + 5x + 3x^2,这里2是零次项x^0的系数,5是一次项x^1的系数,3是二次项x^2的系数。整个函数就叫二次多项式,因为最高次方项是2。
-
-多项式可以有根 - 使函数等于0的x的值。就像二次方程ax^2 + bx + c = 0有两个根,多项式也可以有一个或多个根。找到这些根就像是解方程一样。
-
-多项式除法跟整数除法类似,用大多项式除以小多项式,可以得到商多项式和余数多项式。商多项式次数等于大多项式次数减去小多项式次数。这在分解多项式时很有用。
-
-多项式在密码学中很重要,比如RSA算法用了模多项式运算的性质。多项式分解也是一个硬的数学问题,可以用来设计密码系统。
-
-密码学里还用到了多项式余数定理。这个定理说,用一个数除多项式,余数就是用这个数代入多项式得出的值。就像小学学过的9除以2的余数是1,因为9/2=4余1,代入得到4*2+1=9。
-
-总之,多项式是变量的指数函数,可以做除法产生商和余数,可以有根,也可以应用在密码系统中。希望这样通俗的解释可以让你对多项式的基本概念有所了解。如果例子不太明白可以再举一些生活中的类比,请你提出任何疑惑,我会继续解释。
-
-Copy
-
-
-
-请作为老师，用尽可能通俗易懂的、口语化的方式给不了解它的人详细讲解以下内容，可以用比喻、类比的手法解释难懂的概念，如果能达到让一个高中生听懂的地步就很好了：**Basics of Polynomials for Cryptography**
-
-* **polynomials**
-* Mar 16, 2020
-
-A **polynomial** ϕ of **degree** d is a vector of d+1 **coefficients**:
-
-ϕ=[ϕ0,ϕ1,ϕ2,…,ϕd](1)
-
-For example, ϕ=[1,10,9] is a degree 2 polynomial. Also, ϕ′=[1,10,9,0,0,0] is also a degree 2 polynomial, since the zero coefficients at the end do not count. But ϕ′′=[1,10,9,0,0,0,1] is a degree 6 polynomial, since the last non-zero coefficient is ϕ6=3.
-
-*“A list of numbers? That makes no sense!”* Don’t panic! You are probably more familiar to polynomials expressed as function of a variable X:
-
-ϕ(X)=ϕ0+ϕ1⋅X+ϕ2⋅X2+⋯+ϕd⋅Xd]=∑i=0d+1ϕiXi(2)(3)
-
-For example, ϕ=[1,10,9] and ϕ(X)=9X2+10X+1 are one and the same thing.
-
-**Note:** The degree is defined as the index i of the last non-zero coefficient: deg(ϕ)=i s.t. ∀j>i,ϕj=0.
-
-## **The basics of polynomials**
-
-### **Roots of polynomials**
-
-We say z is a *root* of ϕ(X) if ϕ(z)=0. In this case, ∃q(X) such that ϕ(X)=q(X)(X−z).
-
-But what if z is also a root q(X)? We can capture this notion as follows: we say z has a *multiplicity* k if ∃q′(X) such that ϕ(X)=q′(X)(X−z)k.
-
-### **The polynomial remainder theorem**
-
-This theorem says that:
-
-ϕ(a)=y⇔∃q(X),ϕ(X)=q(X)(X−a)+ϕ(a)(4)
-
-This property is leveraged by certain cryptosystems**1**.
-
-### **Dividing polynomials**
-
-Division of polynomials conceptually resembles division of integers.
-
-Specifically, dividing a polynomial a(X) by b(X) gives a **quotient** q(X) and a **remainder** r(X) such that:
-
-a(X)=q(X)b(X)+r(X)(5)
-
-Importantly, degr<degb and, if dega≥degb, then degq=dega−degb. Otherwise, q(X)=0.
-
-NZ
-
-
-
-好的,多项式在密码学中的基础知识我来给你详细解释一下:
-
-首先,多项式就是一个变量x的指数函数,由不同次方项的系数相加构成。比如2 + 5x + 3x^2,这里的2、5、3就是系数,x的0次方、1次方、2次方构成了这个二次多项式。多项式的最高次方项决定了它的次数,这也叫多项式的度。
-
-多项式可以有根,就是使多项式等于0的x值。找到根就像是解方程找出变量的值一样。如果一个数是多项式的根,而且这个根在分解后的多项式中还是根,那么这个根的重数就是它在分解多项式中出现的次数。
-
-多项式余数定理说明,用一个数去除多项式,最后得到的余数就是用这个数代入多项式计算的值。就像我们小学学习的余数定理一样。
-
-多项式除法类似整数除法,被除数÷除数=商,还有一个余数。多项式除法中,余数的次数一定低于除数的次数。商的次数等于被除数的次数减去除数的次数。
-
-多项式在密码学中很重要,比如RSA算法用了模多项式运算的特性。多项式分解也是数学难题,可以应用在密码系统中。
-
-总之,多项式是Variable的指数函数,可以除法得到商和余数,有根的概念,在密码学中有广泛应用。我尽量用通俗易懂的语言和生活中的类比解释这些概念,如果你还有不明白的地方请随时提问,我会继续用更简单的方式解释。
-
-Copy
-
-
-
-现在请进一步解释，不用太通俗易懂。但是要专业、具体、详细：
-
-# **Basics of Polynomials for Cryptography**
-
-* **polynomials**
-* Mar 16, 2020
-
-A **polynomial** ϕ of **degree** d is a vector of d+1 **coefficients**:
-
-ϕ=[ϕ0,ϕ1,ϕ2,…,ϕd](1)
-
-For example, ϕ=[1,10,9] is a degree 2 polynomial. Also, ϕ′=[1,10,9,0,0,0] is also a degree 2 polynomial, since the zero coefficients at the end do not count. But ϕ′′=[1,10,9,0,0,0,1] is a degree 6 polynomial, since the last non-zero coefficient is ϕ6=3.
-
-*“A list of numbers? That makes no sense!”* Don’t panic! You are probably more familiar to polynomials expressed as function of a variable X:
-
-ϕ(X)=ϕ0+ϕ1⋅X+ϕ2⋅X2+⋯+ϕd⋅Xd]=∑i=0d+1ϕiXi(2)(3)
-
-For example, ϕ=[1,10,9] and ϕ(X)=9X2+10X+1 are one and the same thing.
-
-**Note:** The degree is defined as the index i of the last non-zero coefficient: deg(ϕ)=i s.t. ∀j>i,ϕj=0.
-
-## **The basics of polynomials**
-
-### **Roots of polynomials**
-
-We say z is a *root* of ϕ(X) if ϕ(z)=0. In this case, ∃q(X) such that ϕ(X)=q(X)(X−z).
-
-But what if z is also a root q(X)? We can capture this notion as follows: we say z has a *multiplicity* k if ∃q′(X) such that ϕ(X)=q′(X)(X−z)k.
-
-### **The polynomial remainder theorem**
-
-This theorem says that:
-
-ϕ(a)=y⇔∃q(X),ϕ(X)=q(X)(X−a)+ϕ(a)(4)
-
-This property is leveraged by certain cryptosystems**1**.
-
-### **Dividing polynomials**
-
-Division of polynomials conceptually resembles division of integers.
-
-Specifically, dividing a polynomial a(X) by b(X) gives a **quotient** q(X) and a **remainder** r(X) such that:
-
-a(X)=q(X)b(X)+r(X)(5)
-
-Importantly, degr<degb and, if dega≥degb, then degq=dega−degb. Otherwise, q(X)=0.
-
-NZ
-
-
-
-好的,我来更专业和详细地解释一下多项式在密码学中的基础知识:
-
-1. 多项式定义
-
-多项式φ是一个由系数向量(φ0,φ1,...,φd)表示的d次多项式。其中,φi是x^i项的系数。一个多项式可以写成函子形式φ(x)=φ0+φ1x+...+φdx^d。多项式的最高次项决定了多项式的次数d,也叫度。
-
-1. 多项式的根
-
-如果对于某个复数z,代入多项式后使其等于0,即φ(z)=0,则称z是多项式φ的一个根。根据FACTOR定理,如果z是根,则φ(x)可以分解为φ(x)=(x-z)q(x)的形式。
-
-如果一个根z在分解后的q(x)中仍是根,且重复了k次,则说这个根z的重数是k。
-
-1. 多项式余数定理
-
-多项式余数定理指出:对于多项式φ(x)和常数a,有φ(a)=y 当且仅当存在某个多项式q(x),使得 φ(x) = q(x)(x-a) + y成立。这里y就是多项式φ(x)除以x-a的余数。
-
-1. 多项式除法
-
-多项式之间可以进行除法运算,运算过程类似整数除法。设多项式a(x)除以b(x),可以得到商多项式q(x)和余数多项式r(x),且deg(r)<deg(b)。如果deg(a)>=deg(b),则deg(q)=deg(a)-deg(b)。
-
-1. 密码学应用
-
-多项式在 RSA 加密算法等多方面有重要应用。比如基于分解大整数和分解多项式难度的公钥密码体制。
-
-以上是对多项式基础知识在密码学方面的详细和专业阐述。请您指出还需要补充解释的部分,我很乐意继续详细解释。
-
-Copy
-
-
-
-请作为老师，用尽可能通俗易懂的、口语化的方式给不了解它的人详细讲解以下内容，可以用比喻、类比的手法解释难懂的概念，如果能达到让一个高中生听懂的地步就很好了：
-
-# **Lagrange interpolation**
-
-* **polynomials**
-* **lagrange**
-* Jul 28, 2022
-
-Recall from **our basics discussion** that a **polynomial** ϕ of **degree** d is a vector of d+1 **coefficients**:
-
-ϕ=[ϕ0,ϕ1,ϕ2,…,ϕd](1)
-
-## **How to compute a polynomial’s coefficients from a bunch of its evaluations**
-
-Given n pairs (xi,yi)i∈[n], one can compute or *interpolate* a degree ≤n−1 polynomial ϕ(X) such that: ϕ(xi)=yi,∀i∈[n]
-
-Specifically, the *Lagrange interpolation* formula says that:
-
-ϕ(X)=∑i∈[n]yi⋅Li(X), where Li(X)=∏j∈[n],j≠iX−xjxi−xj(2)
-
-This formula is intimidating at first, but there’s a very simple intuition behind it. The key idea is that Li(X) is defined so that it has two properties:
-
-1. Li(xi)=1,∀i∈[n]
-2. Li(xj)=0,∀j∈[n]∖{i}
-
-You can actually convince yourself that Li(X) has these properties by plugging in xi and xj to see what happens.
-
-**Important:** The Li(X) polynomials are dependent on the set of xi’s only (and thus on n)! Specifically each Li(X) has degree n−1 and has a root at each xj when j≠i! In this sense, a better notation for them would be L[xi,n]i(X) or L[n]i(X) to indicate this dependence.
-
-## **Example: Interpolating a polynomial from three evaluations**
-
-Consider the following example with n=3 pairs of points. Then, by the Lagrange formula, we have:
-
-ϕ(X)=y1L1(X)+y2L2(X)+y3L3(X)(3)
-
-Next, by applying the two key properties of Li(X) from above, you can easily check that ϕ(xi)=yi,∀i∈[3]:
-
-ϕ(x1)ϕ(x2)ϕ(x3)=y1L1(x1)+y2L2(x1)+y3L3(x1)=y1⋅1+y2⋅0+y3⋅0=y1=y1L1(x2)+y2L2(x2)+y3L3(x2)=y1⋅0+y2⋅1+y3⋅0=y2=y1L1(x3)+y2L2(x3)+y3L3(x3)=y1⋅0+y2⋅0+y3⋅1=y3(4)(5)(6)
-
-An **important detail** is that the degree of the interpolated ϕ(X) is ≤n−1 and not necessarily exactly equal to n−1. To see this, consider interpolating the polynomial ϕ(X) such that ϕ(i)=i for all i∈[n]. In other words, xi=yi=i.
-
-The inspired reader might notice that the polynomial ϕ(X)=X could satisfy our constraints. But is this what the Lagrange interpolation will return? After all, the interpolated ϕ(X) is a sum of degree n−1 polynomials Li(X), so could it have degree 1? Well, it turns out, yes, because things cancel out. To see this, take a simple example, with n=3:
-
-ϕ(X)=∑i∈[3]i⋅Li(X)=∑i∈[3]i⋅∏j∈[3]∖iX−ji−j=1⋅X−21−2X−31−3+2⋅X−12−1X−32−3+3⋅X−13−1X−23−2=X−2−1X−3−2+2⋅X−11X−3−1+3⋅X−12X−21=12(X−2)(X−3)−2(X−1)(X−3)+32(X−1)(X−2)=12[(X−2)(X−3)+3(X−1)(X−2)]−2(X−1)(X−3)=12[(X−2)(4X−6)]−2(X−1)(X−3)=(X−2)(2X−3)−2(X−1)(X−3)=(2X2−4X−3X+6)−2(X2−4X+3)=(2X2−7X+6)−2X2+8X−6=X(7)(8)(9)(10)(11)(12)(13)(14)(15)(16)
-
-## **Computational overhead of Lagrange interpolation**
-
-If done naively, interpolating ϕ(X) using the Lagrange formula in Equation **2** will take O(n2) time.
-
-However, there are known techniques for computing ϕ(X) in O(nlog2n) time. We described **part of** these techniques in a **previous blog post**, but for the full techniques please refer to the *“Modern Computer Algebra”* book**1**.
-
-NZ
-
-
-
-好的,我来用通俗易懂的方式解释拉格朗日插值法:
-
-拉格朗日插值法实际上就是从几个点求出一个多项式的方法。举个简单的例子,假设我们有三个点:(1,2),(2,5),(3,7),现在我想求出一个二次多项式,使其过这三个点。
-
-根据拉格朗日公式,这个多项式可以写成:
-
-f(x) = 2L1(x) + 5L2(x) + 7L3(x)
-
-这里L1(x)、L2(x)、L3(x)就是拉格朗日基函数,它有两个重要性质:
-
-(1) Li(xi) = 1,即在己定点xi处的值为1 (2) Li(xj) = 0,对其它点xj处的值为0
-
-这样就保证了f(1)=2,f(2)=5,f(3)=7。
-
-为什么有这样的性质呢,这就涉及到拉格朗日基函数的构造方法了。L1(x) 是这样构造的:
-
-L1(x) = (x-x2)/(x1-x2) * (x-x3)/(x1-x3)
-
-你可以验证一下,这样构造出来的L1(x)确实满足上述两个性质。L2(x)、L3(x)也是类似构造。
-
-所以拉格朗日插值法实际上就是构造出具有特定性质的多项式,从而达到通过给定点进行曲线拟合的目的。通俗地说,就是找出一个多项式,使其曲线过给定的所有点。这在很多实际问题中都有应用。
-
-我用通俗的语言和简单例子解释了拉格朗日插值法的基本思想。如果例子理解起来还有困难,请你提出来,我会想办法进一步解释,确保这个概念对你来说足够清楚。
-
-Copy
-
-
-
-现在请进一步解释，不用太通俗易懂。但是要专业、具体、详细：
-
-# **Lagrange interpolation**
-
-* **polynomials**
-* **lagrange**
-* Jul 28, 2022
-
-Recall from **our basics discussion** that a **polynomial** ϕ of **degree** d is a vector of d+1 **coefficients**:
-
-ϕ=[ϕ0,ϕ1,ϕ2,…,ϕd](1)
-
-## **How to compute a polynomial’s coefficients from a bunch of its evaluations**
-
-Given n pairs (xi,yi)i∈[n], one can compute or *interpolate* a degree ≤n−1 polynomial ϕ(X) such that: ϕ(xi)=yi,∀i∈[n]
-
-Specifically, the *Lagrange interpolation* formula says that:
-
-ϕ(X)=∑i∈[n]yi⋅Li(X), where Li(X)=∏j∈[n],j≠iX−xjxi−xj(2)
-
-This formula is intimidating at first, but there’s a very simple intuition behind it. The key idea is that Li(X) is defined so that it has two properties:
-
-1. Li(xi)=1,∀i∈[n]
-2. Li(xj)=0,∀j∈[n]∖{i}
-
-You can actually convince yourself that Li(X) has these properties by plugging in xi and xj to see what happens.
-
-**Important:** The Li(X) polynomials are dependent on the set of xi’s only (and thus on n)! Specifically each Li(X) has degree n−1 and has a root at each xj when j≠i! In this sense, a better notation for them would be L[xi,n]i(X) or L[n]i(X) to indicate this dependence.
-
-## **Example: Interpolating a polynomial from three evaluations**
-
-Consider the following example with n=3 pairs of points. Then, by the Lagrange formula, we have:
-
-ϕ(X)=y1L1(X)+y2L2(X)+y3L3(X)(3)
-
-Next, by applying the two key properties of Li(X) from above, you can easily check that ϕ(xi)=yi,∀i∈[3]:
-
-ϕ(x1)ϕ(x2)ϕ(x3)=y1L1(x1)+y2L2(x1)+y3L3(x1)=y1⋅1+y2⋅0+y3⋅0=y1=y1L1(x2)+y2L2(x2)+y3L3(x2)=y1⋅0+y2⋅1+y3⋅0=y2=y1L1(x3)+y2L2(x3)+y3L3(x3)=y1⋅0+y2⋅0+y3⋅1=y3(4)(5)(6)
-
-An **important detail** is that the degree of the interpolated ϕ(X) is ≤n−1 and not necessarily exactly equal to n−1. To see this, consider interpolating the polynomial ϕ(X) such that ϕ(i)=i for all i∈[n]. In other words, xi=yi=i.
-
-The inspired reader might notice that the polynomial ϕ(X)=X could satisfy our constraints. But is this what the Lagrange interpolation will return? After all, the interpolated ϕ(X) is a sum of degree n−1 polynomials Li(X), so could it have degree 1? Well, it turns out, yes, because things cancel out. To see this, take a simple example, with n=3:
-
-ϕ(X)=∑i∈[3]i⋅Li(X)=∑i∈[3]i⋅∏j∈[3]∖iX−ji−j=1⋅X−21−2X−31−3+2⋅X−12−1X−32−3+3⋅X−13−1X−23−2=X−2−1X−3−2+2⋅X−11X−3−1+3⋅X−12X−21=12(X−2)(X−3)−2(X−1)(X−3)+32(X−1)(X−2)=12[(X−2)(X−3)+3(X−1)(X−2)]−2(X−1)(X−3)=12[(X−2)(4X−6)]−2(X−1)(X−3)=(X−2)(2X−3)−2(X−1)(X−3)=(2X2−4X−3X+6)−2(X2−4X+3)=(2X2−7X+6)−2X2+8X−6=X(7)(8)(9)(10)(11)(12)(13)(14)(15)(16)
-
-## **Computational overhead of Lagrange interpolation**
-
-If done naively, interpolating ϕ(X) using the Lagrange formula in Equation **2** will take O(n2) time.
-
-However, there are known techniques for computing ϕ(X) in O(nlog2n) time. We described **part of** these techniques in a **previous blog post**, but for the full techniques please refer to the *“Modern Computer Algebra”* book**1**.
-
-NZ
-
-
-
-拉格朗日插值法允许从n个点(xi,yi)中插值出一个度<=n-1的多项式φ(x),使得φ(xi)=yi, i∈[n]成立。
-
-其插值公式为:
-
-φ(x) = ∑yi⋅Li(x) ,  i∈[n]
-
-其中Li(x)为拉格朗日基函数:
-
-Li(x) = ∏j∈[n],j≠i (x - xj)/(xi - xj)
-
-拉格朗日基函数的两个重要性质:
-
-1. Li(xi) = 1, 对每个i∈[n]
-2. Li(xj) = 0, 对每个j∈[n], j≠i
-
-这保证了φ(x)通过每个点(xi,yi)。
-
-例如,给定3个点(x1,y1),(x2,y2),(x3,y3),则有:
-
-φ(x) = y1L1(x) + y2L2(x) + y3L3(x)
-
-可以验证φ(x1)=y1,φ(x2)=y2,φ(x3)=y3。
-
-注意插值多项式的度不一定等于n-1,取决于点(xi,yi)的分布。当xi与yi对应时,φ(x)=x的情况。
-
-直接计算φ(x)的时间复杂度为O(n^2),可用快速傅里叶变换降至O(nlogn)。
-
-以上是对拉格朗日插值法的详细数学描述。请指出需要补充解释的部分,我会进一步阐述具体过程与证明。
-
-Copy
-
-
-
-
-
-TXT
-
-paste.txt
-
-22.56 KB
-
-请作为老师，用尽可能通俗易懂的、口语化的方式给不了解它的人详细讲解以下内容，可以用比喻、类比的手法解释难懂的概念，如果能达到让一个高中生听懂的地步就很好了：
-
-NZ
 
 
 
@@ -445,21 +176,9 @@ NZ
 
 总之,配对是一种超强大的密码学工具,使许多运算变得容易和高效。我尽量用通俗的语言和日常生活的类比解释清楚它的主要思想,具体数学证明等细节此处不展开。如果例子还不太明白,请提出来,我会继续细致解释。
 
-Copy
 
-
-
-
-
-TXT
-
-paste.txt
-
-22.56 KB
 
 现在请进一步解释，不用太通俗易懂。但是要专业、具体、详细：
-
-NZ
 
 
 
@@ -495,21 +214,11 @@ NZ
 
 综上所述,配对作为一种特殊的双线性映射,其双线性和非退化性使其在构建高效密码方案中发挥巨大作用。我尽量用专业的方式全面系统地概述了配对的相关知识,请您指出还需要补充解释的部分。
 
-Copy
 
 
 
-
-
-TXT
-
-paste.txt
-
-22.56 KB
 
 请按照原意翻译
-
-NZ
 
 
 
@@ -783,19 +492,3 @@ G1和G2的使用还会受到其他因素影响,例如存在同构φ:G2→G1,或�
 不幸的是,我无法抑制对它们迷人历史的阐述。同样,我也无法让你在没有见识几个配对强大密码应用的情况下就离开。
 
 之后,我意识到实现配对密码系统的从业者可能会从略知一二它们的内部工作原理中受益,因为这些细节可以用来优化实现。
-
-致谢:
-
-我要感谢Dan Boneh帮助我澄清和添加配对历史部分关于Weil的内容,以及感谢他2015年的Simons演讲,启发我进行更多研究并写下这篇历史记录。
-
-非常感谢:
-
-Lúcás Meier、Pratyush Mishra、Ariel Gabizon和Dario Fiore对“简洁”(Succinct)在SNARK中代表的含义,以及提醒我从RSA假设出发可以构建O(1)大小的SNARK证明的见解。
-
-Sergey Vasilyev指出BLS12-381椭圆曲线定义中的错字。
-
-@BlakeMScurr指出关于Joux工作的错误引用。
-
-Conrado Guovea指出我Victor Miller关于其如何开发Weil配对计算算法的叙述(此处有讨论)。
-
-Chris Peikert指出还有大量不依赖配对的高效IBE方案。

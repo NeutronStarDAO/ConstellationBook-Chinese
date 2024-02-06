@@ -36,6 +36,8 @@ https://eprint.iacr.org/2021/339
 
 https://eprint.iacr.org/2016/199.pdf
 
+https://learnblockchain.cn/article/1806
+
 https://zhuanlan.zhihu.com/p/22228902
 
 https://zhuanlan.zhihu.com/p/23243289
@@ -63,6 +65,8 @@ https://internetcomputer.org/how-it-works#Core-IC-Protocol
 https://wiki.internetcomputer.org/wiki/Internet_Computer_wiki
 
 https://wiki.internetcomputer.org/wiki/Exchange_rate_canister
+
+https://crypto.stanford.edu/~dabo/pubs/papers/BLSmultisig.html
 
 https://www.ruanyifeng.com/blog/2023/03/weekly-issue-246.html
 
